@@ -41,11 +41,11 @@
         width: 50px;
         height: 15px;
         font-size: xx-small;
-        opacity: 0;
+        
       }
       #button:hover {
         background-color: #FFD700;
-        opacity: 1;
+        
 
       }
     </style>
@@ -61,9 +61,9 @@
             <div class="col-md-2 d-flex justify-content-md-start" >
               <img src="Images/TASKPLANR..png" class="img-responsive" style="max-width:50%; max-height:100%;" alt="Logo" ></div>
             <div class="col-md-5 d-flex justify-content-md-center">
-              center
+              
             </div>
-            <div class="col-md-5 d-flex justify-content-md-end">Right</div>
+            <div class="col-md-5 d-flex justify-content-md-end"></div>
           </div>
         
         </div>
@@ -74,7 +74,7 @@
             <a class="navbar-brand"><h1>Team_HSP Board</h1></a>
             <form class="form-inline">
               <input class="form-control mr-sm-2" type="search" placeholder="Search Task..." aria-label="Search">
-              <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+              <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
             </form>
 
             <div class="dropdown">
@@ -82,15 +82,15 @@
                 Quick Filter
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Name</a>
+                <a class="dropdown-item" href="#">Due date</a>
+                <a class="dropdown-item" href="#">Task</a>
               </div>
             </div>
 
             <div class="dropdown">
               <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Asignees
+                Assignees
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Hon</a>
@@ -130,7 +130,7 @@
               
              
             <div class="card-footer">
-              <button class="btn btn-link btn-block text-reset" data-ripple-color="dark" type="button">
+              <button type="button" class="btn btn-link btn-block text-reset" data-toggle="modal" data-target="#reg-modal" data-ripple-color="dark" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
                   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -162,7 +162,7 @@
               
              
             <div class="card-footer">
-              <button class="btn btn-link btn-block text-reset" data-ripple-color="dark" type="button">
+              <button type="button" class="btn btn-link btn-block text-reset" data-toggle="modal" data-target="#reg-modal" data-ripple-color="dark" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
                   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -195,7 +195,7 @@
               
              
             <div class="card-footer">
-              <button class="btn btn-link btn-block text-reset" data-ripple-color="dark" type="button">
+              <button type="button" class="btn btn-link btn-block text-reset" data-toggle="modal" data-target="#reg-modal" data-ripple-color="dark" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
                   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -227,7 +227,7 @@
               
              
             <div class="card-footer">
-              <button class="btn btn-link btn-block text-reset" data-ripple-color="dark" type="button">
+              <button type="button" class="btn btn-link btn-block text-reset" data-toggle="modal" data-target="#reg-modal" data-ripple-color="dark" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
                   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -279,7 +279,7 @@
                         <div class="form-row">
                           <div class="form-group col">
                             <label for="newTaskAssignedTo">Assigned To</label><br>
-                            <button type="button" type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#first-modal">Message @</button>
+                            <button type="button" type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#first-modal">Message @</button>
                                 <div>
                                   <div class="container">
                                     <div id="first-modal" class="modal fade" tabindex="-1" role="dialog">
