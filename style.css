@@ -1,5 +1,12 @@
 *{ box-sizing: border-box; 
     
+}
+
+html {
+  height: 100%;
+  margin: auto;
+  width: 960px;
+  overflow: scroll;
 
 }
 
@@ -8,25 +15,3 @@
     align-items: end;
     justify-content: center;
 }
-
-/* On screens, If the screen is smaller than 800px, instead of four images per row there should be two*/
-
-
-@media screen and (max-width: 800px) {
-    .row {
-      flex-direction: column;
-    }
-    img {
-      min-width: fit-content;
-    }
-  }
-  
-  /* On screens, if the screen is smaller than 600px, the two images per row should become one image per row. */
-  @media screen and (max-width: 600px) {
-    .row {
-      flex-direction: column;
-    }
-    img {
-      max-width: min-content;
-    }
-    }
