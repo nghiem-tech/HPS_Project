@@ -237,6 +237,31 @@ a:hover span:nth-child(4) {
   transition-delay: 0.75s;
 }
 
+
+/* --- Task 5: Date display Button --- */
+
+#time-display{
+  text-align: center;
+  color: #000;
+  letter-spacing:2px;
+  font-size: 12px;
+  font-weight: 600;
+  padding:5px;
+  color: var(--primary);
+  border-radius:30px;
+  transition: 0.3s ease;
+}
+
+#date-display{
+  color: var(--dark);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  padding:5px;
+  letter-spacing: 3px;
+  transition: 0.3s ease;
+}
+
 /* --- Clear Completed task Button --- */
 
 .clear-btn {
@@ -250,6 +275,16 @@ a:hover span:nth-child(4) {
   font-size: 15px;
   cursor: pointer;
   transition: 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .clear-btn {
+    display: none;
+  }
+
+  #task5{
+    display: none;
+  }
 }
 
 /* --- Main Content --- */
