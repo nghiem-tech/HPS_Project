@@ -80,9 +80,7 @@
    </form>
     
      </div>
-
-    <!-- "Add a new Task" Modal content starts here-->
-    <form href="#" method="post" id="form1">
+      <!-- "Add a new Task" Modal content starts here -->
       <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
         <!--Modal Bubble-->  
         <div class="modal-dialog">
@@ -96,82 +94,75 @@
                   <div class="container">
                     <div class="row">
                       <div class="col">
-                        <form id="newTaskForm">
-                          <div class="form-group">
-                            <label for="newTaskNameInput">Task Title</label>
-                            <input type="text" class="form-control" id="newTaskNameInput" placeholder="Task title..." required/>
-                            <div class="valid-feedback">Looks good!</div>
-                            <div class="invalid-feedback">
-                              Please provide a valid name.
-                            </div>
-                          </div>
+                        <!-- <div id="errorMessage"></div> -->
+                      <form id="newTaskForm" action="formHandler.php" method="post" >
+                        <!-- New Task Name -->  
+                         <div class="form-group">
+                            <label for="newTaskName">Task Name</label>
+                              <input type="text" class="form-control" id="newTaskName" placeholder="Task Name..." required/>
+                          
+                          <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">Please provide a valid name.</div>
+                         </div>
+                        
+                          <!-- Task Desciption -->
+                         <div class="form-group">
+                            <label for="newTaskDescription">Description</label>
+                            <input
+                            type="text"
+                            class="form-control"
+                            id="newTaskDescription"
+                            placeholder="Description of task..." 
+                            required/>                     
+                          <div class="invalid-feedback">Please provide a valid description.</div>
+                          <div class="valid-feedback">Looks good!</div>
+                         </div>
+                          
+                        <!-- AssignedTo -->
                           <div class="form-group">
                             <label for="newTaskAssignedTo">Assigned To</label>
                             <input type="text" class="form-control" id="newTaskAssignedTo" placeholder="Assigned to..." required/>
-                            <div class="valid-feedback">Looks good!</div>
-                            <div class="invalid-feedback">
-                              Please provide a valid name.
-                            </div>
+                          
+                          <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">Please provide a valid name.</div>
                           </div>
-                          <div class="form-group">
-                            <label for="newTaskDescription">Description</label>
-                            <textarea
-                              type="text"
-                              name="description"
-                              class="form-control"
-                              id="newTaskDescription"
-                              placeholder="Description of task..."
-                              required
-                            ></textarea>
-                            <div class="invalid-feedback">
-                              <div class="valid-feedback">Looks good!</div>
-                              Please provide a valid description
-                            </div>
+                          <!-- Duedate -->
+                      <div class="form-row">
+                          <div class="form-group col">
+                            <label for="newTaskDuedate">Due Date</label>
+                            <input class="form-control" type="date" id="newTaskDuedate"/>
+                          <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">Please provide a valid date.</div>
+                         </div>  
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group col">
+                            <label for="newTaskStatus">Status:</label>                  
+                            <select class="form-control" id="newTaskStatus">
+                             <option selected disabled value="">Choose...</option>
+                             <option for="to-do" id="to-do">To-do</option>
+                             <option for="in-progress" id="in-progress">In Progress</option>
+                             <option for="review" id="review">Review</option>
+                             <option for="done" id="done">Done</option>
+                           </select>
+                          <div class="invalid-feedback">Please click a status.</div>
                           </div>
-                          <div class="form-row">
-              
-                            <div class="form-group col">
-                              <label for="due-date">Due Date</label>
-                              <input class="form-control" type="date" id="newTaskDueDate"/>
-                            </div>
-                            <div class="valid-feedback">Looks good!</div>
-                            <div class="invalid-feedback">
-                              Please provide a valid date.
-                            </div>
-                          </div>
-    
-                          <div class="form-row">
-                            <div class="form-group col">
-                              <label for="status">Priority Status:</label>
-                            </div>
-                            <div class="form-group col" id="newTaskPriority">
-                                  <input type="radio" id="to-do" name="status" value="to-do">
-                                  <label for="to-do">To-do</label><br>
-                                  <input type="radio" id="in-progress" name="status" value="in-progress">
-                                  <label for="in-progress">In Progress</label><br>
-                                  <input type="radio" id="review" name="status" value="review">
-                                  <label for="review">Review</label><br>
-                                  <input type="radio" id="done" name="status" value="done">
-                                  <label for="done">Done</label><br>
-                            </div>
-                          </div>
-                        </form>
+                      </div>
+
+                      <div class="modal-footer">
+                          <button class="btn btn-warning" type="submit" id="taskSubmit">Submit</button>
+                          <button class="clear btn btn-secondary" type="reset">Reset</button>
+                      </div>
+                      </form>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="modal-footer">
-                  <button class="btn btn-warning" type="submit" id="task_submit">Submit</button>
-                  <button class="clear btn btn-secondary">Reset</button>
-                </div>
               </div>
           </div>
-      </div>
-  
-    </form>
-
+      </div> 
     <!-- Main content starts here-->
-
+    <main>
       <!-- todo -->
         <div class="todo-container">
             <div class="status card bg-light" id="no_status">
@@ -231,9 +222,13 @@
 
     </main>
     <!-- JavaScript -->
-    <script src="script.js" type="text/javascript"></script>
-    <script src="index.js" type="text/javascript"></script>
-    <script src="taskManager.js" type="text/javascript"></script>
+    <script src="js/script.js" type="text/javascript"></script>
+    <script src="js/index.js" type="text/javascript"></script>
+    <script src="js/taskManager.js" type="text/javascript"></script>
+    
+    <script>
+       
+    </script> 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

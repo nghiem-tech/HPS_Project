@@ -104,7 +104,12 @@ function printTime() {
               break;
          }
   
-  
+      if (d.getHours() >= 12){
+          ampm = "PM";
+      } else {
+          ampm = "AM";
+      }
+      
       if(hours>12) {
           hours = hours - 12;
       } else {
@@ -119,14 +124,35 @@ function printTime() {
           secs = "0" + secs;
       }
  
-month = month + 1; document.getElementById("time-display").innerHTML = hours + ":" + mins + ":" + secs;
+month = month + 1; document.getElementById("time-display").innerHTML = hours + ":" + mins + ":" + secs + " " + ampm;
 document.getElementById("date-display").innerHTML = day + ", " + date + "  " + monthName[month] + "  " + year;
 }
 setTimeout(printTime, 1);
 setInterval(printTime, 1000);
 
-// Delete task
+// Blocks out previous dates on calendar 
+let today = new Date();
+let dd = today.getDate();
+let mm = today.getMonth() + 1; //January is 0!
+let yyyy = today.getFullYear();
+if (dd < 10) {
+  dd = '0' + dd
+}
+if (mm < 10) {
+  mm = '0' + mm
+}
 
+today = yyyy + '-' + mm + '-' + dd;
+document.getElementById("newTaskDuedate").setAttribute("min", today);
+
+// Reset Form button 
+$("#reset").on("click", function () {
+  $('#my_select option').prop('selected', function() {
+    return this.defaultSelected;
+  });
+});
+
+// Delete task
 const delete_btns = document.querySelectorAll(".delete");
 
 delete_btns.forEach((btn) => {

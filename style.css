@@ -290,7 +290,8 @@ a:hover span:nth-child(4) {
 /* --- Main Content --- */
 
 main {
-  height: 80vh;
+  height: 90vh;
+  overflow-y: scroll;
 }
 
 .todo-container {

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <main>
+        <!-- todo -->
+          <div class="todo-container">
+              <div class="status card bg-light" id="no_status">
+                <div class="d-flex justify-content-between align-items-center card-header"><strong>To do</strong>
+                  <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+                </div>
+                <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+                  <i class='bx bx-plus'></i> 
+                  <div style="font-size: 12px;">Add a card</div>
+                </button>
+  
+                <div class="task" draggable="true">
+                  <div class="task-content">
+                    <h6>Task</h6>
+                    <div>
+                      <ul class="list-group" id="task-list"></ul>
+                    </div>
+                  </div>
+                  <span class="edit">
+                    <i class='bx bx-pencil'class="btn btn-primary btn-sm p-0"></i>
+                  </span>
+                  <span class="delete">
+                    <i class='bx bx-x'></i>
+                  </span>
+                </div>
+              </div>
+  
+              <div class="status card bg-light">
+                <div class="d-flex justify-content-between align-items-center card-header"><strong>In Progress</strong>
+                  <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+                </div>
+                <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+                  <i class='bx bx-plus'></i> 
+                  <div style="font-size: 12px;">Add a card</div>
+                </button>
+              </div>
+  
+              <div class="status card bg-light">
+                <div class="d-flex justify-content-between align-items-center card-header"><strong>Review</strong>
+                  <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+                </div>
+                <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+                  <i class='bx bx-plus'></i> 
+                  <div style="font-size: 12px;">Add a card</div>
+                </button>
+              </div>
+  
+              <div class="status card bg-light">
+                <div class="d-flex justify-content-between align-items-center card-header"><strong>Done</strong>
+                  <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+                </div>
+                <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+                  <i class='bx bx-plus'></i> 
+                  <div style="font-size: 12px;">Add a card</div>
+                </button>
+            </div>
+  
+      </main>
+
+      <li class="card" style="min-width: 50vw">
+        <div class="card-body">
+          <h5 class="card-title">${name}</h5>
+          <p class="card-text">
+            ${description}
+          </p>
+          <p class="card-text">${assignedTo} To</p>
+          <p class="card-text">${dueDate}</p>
+          <div class="card-footer row">
+            <div class="col-6">
+              <p class="card-text"><b>${status}</b></p>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-outline-success done-button">
+                Done
+              </button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-outline-danger delete-button">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+</body>
+</html>
