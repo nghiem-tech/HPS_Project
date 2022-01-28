@@ -289,17 +289,11 @@ a:hover span:nth-child(4) {
 
 /* --- Main Content --- */
 
-main {
-  height: 90vh;
-  overflow-y: scroll;
-}
-
 .todo-container {
   display: flex; 
   flex-wrap: wrap;
   align-items: start;
   margin: 1rem;
-  overflow-x: scroll; 
   white-space: nowrap;
 }
 
