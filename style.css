@@ -12,6 +12,8 @@
   --primary: #9e66ee;
   --light: #eee;
   --dark: #212121;
+  --secondary: #f3f2ab;
+  --bootstraplight: #f8f9fa;
 }
 
 /* --- Navigation bar --- */
@@ -289,11 +291,17 @@ a:hover span:nth-child(4) {
 
 /* --- Main Content --- */
 
+main {
+  height: 90vh;
+  
+}
+
 .todo-container {
   display: flex; 
   flex-wrap: wrap;
   align-items: start;
   margin: 1rem;
+  
   white-space: nowrap;
 }
 
@@ -368,5 +376,16 @@ a:hover span:nth-child(4) {
     object-fit: contain;
   }
 
+}
+
+.pokemon {
+  list-style-type: none;
+}
+
+
+.list-group {
+	max-width: 400x;
+	min-height: 50px;
+	transition: 0.3s;
 }
 

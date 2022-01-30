@@ -1,3 +1,83 @@
+// Bootstrap react
+
+// Drag and Drop
+
+if (document.querySelector(".list-group")) {
+	const area = document.querySelectorAll(".list-group");
+	const item = document.querySelector(".pokemon");
+	const tag = document.querySelector("#priority");
+
+	const dragstart = (e) => {
+		setTimeout(() => e.target.classList.add("hide"), 0);
+	};
+
+	const dragend = (e) => {
+		e.target.classList.remove("hide");
+	};
+
+	const dragover = (e) => {
+		e.preventDefault();
+	};
+
+	const dragenter = (e) => {
+		e.target.classList.add("hovered");
+	};
+
+	const dragleave = (e) => {
+		e.target.classList.remove("hovered");
+	};
+
+	const drop = (e) => {
+		e.target.classList.remove("hovered");
+		e.target.append(item);
+	};
+
+	item.addEventListener("dragend", dragend);
+	item.addEventListener("dragstart", dragstart);
+
+	area.forEach((a, i) => {
+		a.addEventListener("dragover", dragover);
+		a.addEventListener("dragenter", dragenter);
+		a.addEventListener("dragleave", dragleave);
+		a.addEventListener("drop", drop);
+		a.addEventListener("drop", () => {
+			if (i === 0) {
+				tag.innerHTML = "To Do";
+                tag.style.color = "#fff";
+				tag.style.backgroundColor = "#94bbe9";
+                tag.style.borderRadius = '1em';
+                tag.style.textAlign= 'center';
+			}
+			if (i === 1) {
+				tag.innerHTML = "In Progress";
+                tag.style.color = "#fff";
+				tag.style.backgroundColor = "#fcb045";
+                tag.style.borderRadius = '1em';
+                tag.style.textAlign= 'center';
+			}
+			if (i === 2) {
+				tag.innerHTML = "Review";
+                tag.style.color = "#fff";
+				tag.style.backgroundColor = "#eeaeca";
+                tag.style.borderRadius = '1em';
+                tag.style.textAlign= 'center';
+			}
+			if (i === 3) {
+				tag.innerHTML = "Done";
+                tag.style.color = "#fff";
+				tag.style.backgroundColor = "#acde83";
+                tag.style.borderRadius = '1em';
+                tag.style.textAlign= 'center';
+			}
+	
+		});
+	});
+}
+
+
+
+
+
 // hamburger animation 
 
 const hamburger = document.querySelector('.hamburger');
@@ -5,160 +85,3 @@ const hamburger = document.querySelector('.hamburger');
 hamburger.addEventListener('click', function () {
   this.classList.toggle('is-active');
 });
-
-// Drag & Drop 
-
-const tasks = document.querySelectorAll(".task");
-const all_status = document.querySelectorAll(".status");
-let draggableTodo = null;
-
-tasks.forEach((task) => {
-  task.addEventListener("dragstart", dragStart);
-  task.addEventListener("dragend", dragEnd);
-});
-
-function dragStart() {
-  draggableTodo = this;
-  setTimeout(() => {
-    this.style.display = "none";
-  }, 0);
-  console.log("dragStart");
-}
-
-function dragEnd() {
-  draggableTodo = null;
-  setTimeout(() => {
-    this.style.display = "block";
-  }, 0);
-  console.log("dragEnd");
-}
-
-all_status.forEach((status) => {
-  status.addEventListener("dragover", dragOver);
-  status.addEventListener("dragenter", dragEnter);
-  status.addEventListener("dragleave", dragLeave);
-  status.addEventListener("drop", dragDrop);
-});
-
-function dragOver(e) {
-  e.preventDefault();
-  console.log("dragOver");
-}
-
-function dragEnter() {
-  this.style.border = "1px dashed #ccc";
-  console.log("dragEnter");
-}
-
-function dragLeave() {
-  this.style.border = "none";
-  console.log("dragLeave");
-}
-
-function dragDrop() {
-  this.style.border = "none";
-  this.appendChild(draggableTodo);
-  console.log("dropped");
-}
-
-// Task 5: Date Display 
-
-function printTime() {
-  let d = new Date();
-  let hours = d.getHours();
-  let mins = d.getMinutes();
-  let secs = d.getSeconds();
-  let day = d.getDay();
-  let date = d.getDate();
-  let month = d.getMonth();
-  let year = d.getFullYear();
-  
-  const monthName = [
-  'January','February','March','April',
-  'May','June','July','August','September',
-  'October','November','December'
-];
-
-      switch (day){
-      
-          case 0:
-              day = "Sunday";
-              break;
-          case 1:
-              day = "Monday";
-              break;
-          case 2:
-              day = "Tuesday";
-              break;
-          case 3:
-              day = "Wednesday";
-              break;
-          case 4:
-              day = "Thursday";
-              break;
-          case 5:
-              day = "Friday";
-              break;
-          case 6:
-              day = "Saturday";
-              break;
-         }
-  
-      if (d.getHours() >= 12){
-          ampm = "PM";
-      } else {
-          ampm = "AM";
-      }
-      
-      if(hours>12) {
-          hours = hours - 12;
-      } else {
-          hours = hours
-      }
-      if(mins<10){
-          
-          mins = "0" + mins;
-      }
-      if(secs<10){
-
-          secs = "0" + secs;
-      }
- 
-month = month + 1; document.getElementById("time-display").innerHTML = hours + ":" + mins + ":" + secs + " " + ampm;
-document.getElementById("date-display").innerHTML = day + ", " + date + "  " + monthName[month] + "  " + year;
-}
-setTimeout(printTime, 1);
-setInterval(printTime, 1000);
-
-// Blocks out previous dates on calendar 
-let today = new Date();
-let dd = today.getDate();
-let mm = today.getMonth() + 1; //January is 0!
-let yyyy = today.getFullYear();
-if (dd < 10) {
-  dd = '0' + dd
-}
-if (mm < 10) {
-  mm = '0' + mm
-}
-
-today = yyyy + '-' + mm + '-' + dd;
-document.getElementById("newTaskDuedate").setAttribute("min", today);
-
-// Reset Form button 
-$("#reset").on("click", function () {
-  $('#my_select option').prop('selected', function() {
-    return this.defaultSelected;
-  });
-});
-
-// Delete task
-const delete_btns = document.querySelectorAll(".delete");
-
-delete_btns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.parentElement.style.display = "none";
-  });
-});
-
-

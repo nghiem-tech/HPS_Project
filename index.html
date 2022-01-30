@@ -1,239 +1,273 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Boxicons CSS -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/query-ui.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- External Javascript -->
-    <title>Hello, welcome to TASKPLANR!</title>
-  </head>
 
-  <header>
-    <nav>
-      <div class="nav-wrapper">
-        <h1 class="is-active">Taskplanr</h1>
-
-        <div class="menu">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <!-- Font Awesome CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <!-- Boxicons CSS -->
+   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+   <!-- External CSS -->
+   <link rel="stylesheet" type="text/css" href="style.css">
   
-          <div class="dropdown show">
-            <a class="btn btn-sm btn-outline-light dropdown-toggle mr-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Urgency 
-            </a>
-          
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#"></a>
-              <a class="dropdown-item" href="#">Due date</a>
-              <a class="dropdown-item" href="#">Task</a>
-            </div>
-          </div>
+   <title>Hello, welcome to TASKPLANR!</title>
+</head>
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <h1 class="is-active">Taskplanr</h1>
 
-          <div class="dropdown show">
-            <a class="btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Assignees
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Hon Sang Kong</a>
-              <a class="dropdown-item" href="#">Sajo John</a>
-              <a class="dropdown-item" href="#">Phoi Nghiem</a>
-            </div>
+      <div class="menu">
+
+        <div class="dropdown show">
+          <a class="btn btn-sm btn-outline-light dropdown-toggle mr-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Urgency 
+          </a>
+        
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#"></a>
+            <a class="dropdown-item" href="#">Due date</a>
+            <a class="dropdown-item" href="#">Task</a>
           </div>
         </div>
 
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search ... " aria-label="Search" style="height: 2rem; font-size: 13px;">
-          <button class="btn btn-sm btn-warning my-2 my-sm-0" type="submit" style="color:#fff;">Search</button>
-        </form>
-
-        <button class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="dropdown show">
+          <a class="btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Assignees
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Hon Sang Kong</a>
+            <a class="dropdown-item" href="#">Sajo John</a>
+            <a class="dropdown-item" href="#">Phoi Nghiem</a>
+          </div>
+        </div>
       </div>
-    </nav>
-  </header>
+
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search ... " aria-label="Search" style="height: 2rem; font-size: 13px;">
+        <button class="btn btn-sm btn-warning my-2 my-sm-0" type="submit" style="color:#fff;">Search</button>
+      </form>
+
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
 
   <body>
-    <!-- Team Name Board starts here-->
-    <div class="team-name">
-      <a href="#">
-         <span></span>
-         <span></span>
-         <span></span>
-         <span></span>
-         Team_HSP Board
-      </a>
+   <!-- Team Name Board starts here-->
+   <div class="team-name">
+    <a href="#">
+       <span></span>
+       <span></span>
+       <span></span>
+       <span></span>
+       Team_HSP Board
+    </a>
 
-    <!-- Task 5: Date Display starts here-->
-    <form id="task5">
-      <span id="date-display"></span>
-      <span id="time-display">loading</span>
-   </form>
-    
-     </div>
-      <!-- "Add a new Task" Modal content starts here -->
-      <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-        <!--Modal Bubble-->  
-        <div class="modal-dialog">
-          <!--Modal Content-->    
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="model-title">New Task</h5>
-                  <button type="button close-modal" class="close" id="close-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col">
-                        <!-- <div id="errorMessage"></div> -->
-                      <form id="newTaskForm" action="formHandler.php" method="post" >
-                        <!-- New Task Name -->  
-                         <div class="form-group">
-                            <label for="newTaskName">Task Name</label>
-                              <input type="text" class="form-control" id="newTaskName" placeholder="Task Name..." required/>
-                          
-                          <div class="valid-feedback">Looks good!</div>
-                          <div class="invalid-feedback">Please provide a valid name.</div>
-                         </div>
+  <!-- Task 5: Date Display starts here-->
+  <form id="task5">
+    <span id="date-display"></span>
+    <span id="time-display">loading</span>
+ </form>
+  <!-- Clear completed task button starts here-->
+    <button class="clear-btn" id="clear-btn" data-clear-complete-tasks-button onclick="todoButtons.deleteAll()">
+      Clear completed tasks <i class='bx bx-reset'></i>
+    </button>
+   </div>
+    <!-- "Add a new Task" Modal content starts here -->
+    <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+      <!--Modal Bubble-->  
+      <div class="modal-dialog">
+        <!--Modal Content-->    
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="model-title">New Task</h5>
+                <button type="button close-modal" class="close" id="close-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <!-- <div id="errorMessage"></div> -->
+                    <form id="newTaskForm">
+                      <!-- New Task Name -->  
+                       <div class="form-group">
+                          <label for="newTaskName">Task Name</label>
+                            <input type="text" class="form-control" id="newTaskName" placeholder="Task Name..." required/>
                         
-                          <!-- Task Desciption -->
-                         <div class="form-group">
-                            <label for="newTaskDescription">Description</label>
-                            <input
-                            type="text"
-                            class="form-control"
-                            id="newTaskDescription"
-                            placeholder="Description of task..." 
-                            required/>                     
-                          <div class="invalid-feedback">Please provide a valid description.</div>
-                          <div class="valid-feedback">Looks good!</div>
-                         </div>
-                          
-                        <!-- AssignedTo -->
-                          <div class="form-group">
-                            <label for="newTaskAssignedTo">Assigned To</label>
-                            <input type="text" class="form-control" id="newTaskAssignedTo" placeholder="Assigned to..." required/>
-                          
-                          <div class="valid-feedback">Looks good!</div>
-                          <div class="invalid-feedback">Please provide a valid name.</div>
-                          </div>
-                          <!-- Duedate -->
-                      <div class="form-row">
-                          <div class="form-group col">
-                            <label for="newTaskDuedate">Due Date</label>
-                            <input class="form-control" type="date" id="newTaskDuedate"/>
-                          <div class="valid-feedback">Looks good!</div>
-                          <div class="invalid-feedback">Please provide a valid date.</div>
-                         </div>  
-                      </div>
-                      <div class="form-row">
-                          <div class="form-group col">
-                            <label for="newTaskStatus">Status:</label>                  
-                            <select class="form-control" id="newTaskStatus">
-                             <option selected disabled value="">Choose...</option>
-                             <option for="to-do" id="to-do">To-do</option>
-                             <option for="in-progress" id="in-progress">In Progress</option>
-                             <option for="review" id="review">Review</option>
-                             <option for="done" id="done">Done</option>
-                           </select>
-                          <div class="invalid-feedback">Please click a status.</div>
-                          </div>
-                      </div>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please provide a valid name more than 5 characters.</div>
+                       </div>
+                      
+                        <!-- Task Description -->
+                       <div class="form-group">
+                          <label for="newTaskDescription">Description</label>
+                          <input
+                          type="text"
+                          class="form-control"
+                          id="newTaskDescription"
+                          placeholder="Description of task..." 
+                          required/>                     
+                        <div class="invalid-feedback">Please provide a valid description more than 5 characters.</div>
+                        <div class="valid-feedback">Looks good!</div>
+                       </div>
+                        
+                      <!-- AssignedTo -->
+                        <div class="form-group">
+                          <label for="newTaskAssignedTo">Assigned To</label>
+                          <input type="text" class="form-control" id="newTaskAssignedTo" placeholder="Assigned to..." required/>
+                        
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please provide a valid name more than 5 characters.</div>
+                        </div>
+                        <!-- Duedate -->
+                    <div class="form-row">
+                        <div class="form-group col">
+                          <label for="newTaskDuedate">Due Date</label>
+                          <input class="form-control" type="date" id="newTaskDuedate"/>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please provide a valid date.</div>
+                       </div>  
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                          <label for="newTaskStatus">Status:</label>                  
+                          <select class="form-control" id="newTaskStatus">
+                           <option selected disabled value="">Choose...</option>
+                           <option for="to-do" id="to-do">To-do</option>
+                           <option for="in-progress" id="in-progress">In Progress</option>
+                           <option for="review" id="review">Review</option>
+                           <option for="done" id="done">Done</option>
+                         </select>
+                        <div class="invalid-feedback">Please click a status.</div>
+                        </div>
+                    </div>
 
-                      <div class="modal-footer">
-                          <button class="btn btn-warning" type="submit" id="taskSubmit">Submit</button>
-                          <button class="clear btn btn-secondary" type="reset">Reset</button>
-                      </div>
-                      </form>
-                      </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-warning" type="submit" id="taskSubmit">Submit</button>
+                        <button class="clear btn btn-secondary" type="reset">Reset</button>
+                    </div>
+                    </form>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+        </div>
+    </div> 
+  <!-- Main content starts here-->
+  <main>
+    <!-- To do list -->
+      <div class="todo-container">
+        <div class="status card bg-light" id="to-do">
+            <div class="d-flex justify-content-between align-items-center card-header"><strong>To do</strong>
+              <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+            </div>
+            <!--ADD TASK CARD -->
+            <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+              <i class='bx bx-plus'></i> 
+              <div style="font-size: 12px;">Add a card</div>
+            </button>
+            <!-- This is where the task cards will be added -->
+              <ul class="list-group" id="task-list" data-drop-target="true">
+                <!--<li class="pokemon" draggable="true">
+                      <div class="task card-body">
+                                <div class="task-content">
+                                  <p class="card-title" style="font-weight:900;">Disneyland</p>
+                                  <p class="card-text">
+                                  <div>Go to Japan's Disneyland</div>
+                                  <div>Sara Smith</div>
+                                  <div id="due-date">2/11/2021</div>
+                                  </p>
+                                  <div class="card-text" id="priority" style="font-weight:500; background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,111,29,1) 50%, rgba(252,176,69,1) 100%); padding: 0 10px; border-radius: 10px; text-decoration: capitalize; text-align: center;">In Progress</div>
+                                </div>
+                                <span class="edit">
+                                  <i class='bx bx-pencil'class="btn btn-primary btn-sm p-0"></i>
+                                </span>
+                                <span class="delete">
+                                  <i class='bx bx-x'></i>
+                                </span>
+                        </div>
+                  </li>-->
+              </ul>
+        </div>
+        <!--In Progress list -->
+        <div class="status card bg-light" id="inProgress">
+          <div class="d-flex justify-content-between align-items-center card-header"><strong>In Progress</strong>
+            <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
           </div>
-      </div> 
-    <!-- Main content starts here-->
-    <main>
-      <!-- todo -->
-        <div class="todo-container">
-            <div class="status card bg-light" id="no_status">
-              <div class="d-flex justify-content-between align-items-center card-header"><strong>To do</strong>
-                <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
-              </div>
-              <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
-                <i class='bx bx-plus'></i> 
-                <div style="font-size: 12px;">Add a card</div>
-              </button>
+          <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+            <i class='bx bx-plus'></i> 
+            <div style="font-size: 12px;">Add a card</div>
+          </button>
+          <ul class="list-group" id="task-list" data-drop-target="true"></ul>
+        </div>
+        
+       <!--Review list -->
+        <div class="status card bg-light" id="review">
+          <div class="d-flex justify-content-between align-items-center card-header"><strong>Review</strong>
+            <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+          </div>
+          <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+            <i class='bx bx-plus'></i> 
+            <div style="font-size: 12px;">Add a card</div>
+          </button>
+          <ul class="list-group" id="task-list" data-drop-target="true"></ul>
+        </div>
 
-              <div class="task" draggable="true">
-                <div class="task-content">
-                  <h6>Task</h6>
-                  <div>
-                    <ul class="list-group" id="task-list"></ul>
-                  </div>
+        <!--done list -->
+        <div class="status card bg-light" id="done" data-drop-target="true">
+          <div class="d-flex justify-content-between align-items-center card-header"><strong>Done</strong>
+            <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+          </div>
+          <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+            <i class='bx bx-plus'></i> 
+            <div style="font-size: 12px;">Add a card</div>
+          </button>
+          <ul class="list-group" id="task-list" data-drop-target="true">
+            <li class="pokemon" draggable="true">
+              <div class="task card-body">
+                        <div class="task-content">
+                          <p class="card-title" style="font-weight:900;">Disneyland</p>
+                          <p class="card-text">
+                          <div>Go to Japan's Disneyland</div>
+                          <div>Sara Smith</div>
+                          <div id="due-date">2/11/2021</div>
+                          </p>
+                          <div class="card-text" id="priority" style="font-weight:500; background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,111,29,1) 50%, rgba(252,176,69,1) 100%); padding: 0 10px; border-radius: 10px; text-decoration: capitalize; text-align: center;">In Progress</div>
+                        </div>
+                        <span class="edit">
+                          <i class='bx bx-pencil'class="btn btn-primary btn-sm p-0"></i>
+                        </span>
+                        <span class="delete">
+                          <i class='bx bx-x'></i>
+                        </span>
                 </div>
-                <span class="edit">
-                  <i class='bx bx-pencil'class="btn btn-primary btn-sm p-0"></i>
-                </span>
-                <span class="delete">
-                  <i class='bx bx-x'></i>
-                </span>
-              </div>
-            </div>
-
-            <div class="status card bg-light">
-              <div class="d-flex justify-content-between align-items-center card-header"><strong>In Progress</strong>
-                <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
-              </div>
-              <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
-                <i class='bx bx-plus'></i> 
-                <div style="font-size: 12px;">Add a card</div>
-              </button>
-            </div>
-
-            <div class="status card bg-light">
-              <div class="d-flex justify-content-between align-items-center card-header"><strong>Review</strong>
-                <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
-              </div>
-              <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
-                <i class='bx bx-plus'></i> 
-                <div style="font-size: 12px;">Add a card</div>
-              </button>
-            </div>
-
-            <div class="status card bg-light">
-              <div class="d-flex justify-content-between align-items-center card-header"><strong>Done</strong>
-                <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
-              </div>
-              <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
-                <i class='bx bx-plus'></i> 
-                <div style="font-size: 12px;">Add a card</div>
-              </button>
-          </div>
-
-    </main>
-    <!-- JavaScript -->
-    <script src="js/script.js" type="text/javascript"></script>
-    <script src="js/index.js" type="text/javascript"></script>
-    <script src="js/taskManager.js" type="text/javascript"></script>
-    
-    <script>
-       
-    </script> 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+          </li>
+          </ul>
+        </div> 
+        
+    </div>     
+  </main>
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+
+    <script src="js/taskManager.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/script.js"></script>
+</body>
 
 </html>
