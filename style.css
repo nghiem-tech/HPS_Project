@@ -16,6 +16,10 @@
   --bootstraplight: #f8f9fa;
 }
 
+body {
+  background-color: var(--dark);
+}
+
 /* --- Navigation bar --- */
 header {
   display: grid;
@@ -175,7 +179,7 @@ h1 {
   color: #fffb00;
   background: #af63ee;
   box-shadow: 0 0 10px #af63ee, 0 0 40px #af63ee, 0 0 80px #af63ee;
-  transition-delay: 1s;
+  transition-delay: 0.5s;
 }
 
 .team-name a span {
@@ -208,7 +212,7 @@ h1 {
 .team-name a:hover span:nth-child(3) {
   right: 100%;
   transition: 1s;
-  transition-delay: 0.5s;
+  transition-delay: 0.13s;
 }
 
 .team-name a span:nth-child(2) {
@@ -222,7 +226,7 @@ h1 {
 .team-name a:hover span:nth-child(2) {
   top: 100%;
   transition: 1s;
-  transition-delay: 0.25s;
+  transition-delay: 0.21s;
 }
 
 a span:nth-child(4) {
@@ -236,7 +240,7 @@ a span:nth-child(4) {
 a:hover span:nth-child(4) {
   bottom: 100%;
   transition: 1s;
-  transition-delay: 0.75s;
+  transition-delay: 0.37s;
 }
 
 
@@ -255,7 +259,7 @@ a:hover span:nth-child(4) {
 }
 
 #date-display{
-  color: var(--dark);
+  color: var(--light);
   text-align: center;
   font-size: 15px;
   font-weight: 400;
@@ -293,7 +297,6 @@ a:hover span:nth-child(4) {
 
 main {
   height: 90vh;
-  
 }
 
 .todo-container {
@@ -311,9 +314,31 @@ main {
   transition: 0.3s ease;
 }
 
+/* --- Task Card Heading Background --- */
+
+#to-do {
+  background: rgba(252,70,161,1);
+}
+
+#inProgress {
+  background: #94bbe9;
+}
+
+#review {
+  background: #f1c812;
+}
+
+#done {
+  background: #acde83e6;
+}
+
+#title {
+  color: #fff;
+}
+
 #add_btn {
   padding: 0.5rem 1rem;
-  background-color: #ccc;
+  background-color: rgb(46, 43, 43);
   outline: none;
   border: none;
   width: 100%;
@@ -373,6 +398,14 @@ main {
     display: grid;
     justify-content: center;
     grid-gap: 20px;
+    object-fit: contain;
+  }
+}
+
+@media (min-width: 1400px) {
+  .todo-container {
+    display: flex;
+    justify-content: center;
     object-fit: contain;
   }
 }

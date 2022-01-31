@@ -172,8 +172,8 @@
   <main>
       <!-- To do list -->
         <div class="todo-container">
-          <div class="status card bg-light" id="to-do" ondrop="drop(event)" ondragover="allowDrop(event)">
-              <div class="d-flex justify-content-between align-items-center card-header"><strong>To do</strong>
+          <div class="status card" id="to-do" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <div class="d-flex justify-content-between align-items-center card-header" id="title"><strong>To do</strong>
                 <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
               </div>
               <!--ADD TASK CARD -->
@@ -205,10 +205,11 @@
           </div>
 
           <!-- In-Progress list -->
-          <div class="status card bg-light" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="d-flex justify-content-between align-items-center card-header"><strong>In Progress</strong>
+          <div class="status card" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="d-flex justify-content-between align-items-center card-header" id="title"><strong>In Progress</strong>
               <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
             </div>
+            <!--ADD TASK CARD -->
             <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
               <i class='bx bx-plus'></i> 
               <div style="font-size: 12px;">Add a card</div>
@@ -217,10 +218,11 @@
           </div>
           
          <!-- Review list -->
-          <div class="status card bg-light" id="review" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="d-flex justify-content-between align-items-center card-header"><strong>Review</strong>
+          <div class="status card" id="review" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="d-flex justify-content-between align-items-center card-header" id="title"><strong>Review</strong>
               <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
             </div>
+            <!--ADD TASK CARD -->
             <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
               <i class='bx bx-plus'></i> 
               <div style="font-size: 12px;">Add a card</div>
@@ -229,10 +231,11 @@
           </div>
   
           <!--Done list -->
-          <div class="status card bg-light" id="done" data-drop-target="true" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="d-flex justify-content-between align-items-center card-header"><strong>Done</strong>
+          <div class="status card" id="done" data-drop-target="true" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="d-flex justify-content-between align-items-center card-header" id="title"><strong>Done</strong>
               <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
             </div>
+            <!--ADD TASK CARD -->
             <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
               <i class='bx bx-plus'></i> 
               <div style="font-size: 12px;">Add a card</div>
