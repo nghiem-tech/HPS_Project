@@ -12,7 +12,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
             <p class="card-text"><b>${status}</b></p>
           </div>
           <div class="col-3">
-            <button class="btn btn-outline-success done-button" onclick="appendIt()">
+            <button class="btn btn-outline-success done-button">
               Done
             </button>
           </div>
@@ -91,15 +91,15 @@ class TaskManager {
         );
 
         switch (currentTask.status) {
-            case "done":
+            case "Done":
                 doneTasksHtmlList.push(taskHtml);
                 break;
 
-            case "review":
+            case "Review":
                 reviewTasksHtmlList.push(taskHtml);
                 break;
 
-            case "inProgress":
+            case "In Progress":
                 inProgressTasksHtmlList.push(taskHtml);
                 break;
 
