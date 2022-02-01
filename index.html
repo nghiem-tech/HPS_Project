@@ -49,9 +49,11 @@
 
       }
 
-      img {
-        max-width: 100px;
-        max-height: auto;
+      .navbar-brand{
+        display: absolute;
+        top: 50%;
+        bottom: 50%;
+        transform: translate(-50%, -50%)
       }
     </style>
     
@@ -59,24 +61,25 @@
 
   <body class="bg-light text-dark">
     <!-- Start your project here-->
-    <header >
-      <div class="bg-white border-bottom">
-        <div class="container-fluid">
+    <header class="fixed-top mb-4">
+      <div class="bg-white border-bottom p-3">
+        <div class="container">
           <div class="row">
             <div class="col-md-2 d-flex justify-content-md-start" >
+              <img src="Images/TASKPLANR..png" class="img-responsive" style="max-width:50%; max-height:100%;" alt="Logo" ></div>
             <div class="col-md-5 d-flex justify-content-md-center">
               
             </div>
             <div class="col-md-5 d-flex justify-content-md-end"></div>
           </div>
+        </header>      
         
         </div>
       </div>
-      <div class="bg-light text-dark">
-        
+      <div class="row">
+        <div class="col-md-7">
           <nav class="navbar navbar-light bg-light">
-            <img src="Images/TASKPLANR..png" alt="logo">
-            <a class="navbar-brand"><h4>Team_HSP Board</h4></a>
+            <a class="navbar-brand"><h2>Team_HSP Board</h2></a>
             <form class="form-inline">
               <input class="form-control mr-sm-2" type="search" placeholder="Search Task..." aria-label="Search">
               <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
@@ -105,6 +108,9 @@
             </div>
 
           </nav>
+        </div>
+        <div class="col-md-3">
+        </div>
       </div>
       <main class="container-fluid">
         <section class="d-flex align-items-start h-100" data-perfect-scrollbar="true" style="position: relative" data-sortable="sortable">
@@ -120,10 +126,6 @@
             </div>
             <div class="sortable-item"></div>
               <div class="card-body rounded bg-white shadow-3 mb-2 p-4">Item 1
-                <p><small><strong>Assigned to :</strong>Phoi, Hon & Sajo 
-                  <br><strong>Description:</strong> Researching 
-                  <br><strong>Due Date:</strong> 21 Dec 2021
-                </small></p>
                 
                 <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
                 <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
@@ -131,37 +133,27 @@
                 
               </div>
               <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 2
-                <p><small><strong>Assigned to :</strong>Hon, Sajo & Phoi
-                  <br><strong>Description:</strong> Create Wire Framework
-                  <br><strong>Due Date:</strong>  26 Dec 2021
-                </small></p>
                 
                 <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
                 <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
               </div>
               <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 3
-                <p><small><strong>Assigned to :</strong>Phoi, Hon & Sajo
-                  <br><strong>Description:</strong> Use bootstrap to make Mock Framework
-                  <br><strong>Due Date:</strong>  29 Dec 2021
-                </small></p>
                 
                 <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
                 <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
               </div>
               <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 4
-                <p><small><strong>Assigned to :</strong>Sajo & Hon
-                  <br><strong>Description:</strong> Edit Mock Framework
-                  <br><strong>Due Date:</strong>  30 Dec 2021
-                </small></p>
                 
                 <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
                 <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
               </div>
               <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 5
-                <p><small><strong>Assigned to :</strong>Phoi, Hon & Sajo
-                  <br><strong>Description:</strong> Review Mock Framework for Submission
-                  <br><strong>Due Date:</strong>  31 Dec 2021
-                </small></p>
+                
+                <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
+                <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
+              </div>
+
+              <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 6
                 
                 <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
                 <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
@@ -189,7 +181,6 @@
             </div>
             <div class="sortable-item"></div>
             <div class="card-body rounded bg-white shadow-3 mb-2 p-4">Item 1
-
                 
               <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
               <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
@@ -289,10 +280,8 @@
               </button>
             </div>
             <div class="card-body rounded bg-white shadow-3 mb-2 p-4">Item 1
-          
                 
               <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              
               <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
 
               
@@ -331,150 +320,98 @@
           </div>
         </section>
       </main>
-    </header>
+    
     <!-- End your project here-->
 
      <!-- Optional JavaScript -->
+
      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-      <!--Modal-->
-      <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-        <!--Modal Bubble-->  
-          <div class="modal-dialog">
-        <!--Modal Content-->    
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="model-title">New / Edit Task Form</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              </div>
-              <div class="modal-body">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      
-                      <form id="newTaskForm">
+ <!-- "Add a new Task" Modal content starts here -->
+     <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+       <!--Modal Bubble-->  
+       <div class="modal-dialog">
+         <!--Modal Content-->    
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title" id="model-title">New Task</h5>
+                 <button type="button close-modal" class="close" id="close-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               </div>
+               <div class="modal-body">
+                 <div class="container">
+                   <div class="row">
+                     <div class="col">
+                       <!-- <div id="errorMessage"></div> -->
+                     <form id="newTaskForm" action="formHandler.php" method="post" >
+                       <!-- New Task Name -->  
                         <div class="form-group">
-                          <label for="newTaskNameInput">Task Title</label>
-                          <input type="text" class="form-control" id="newTaskNameInput" />
+                           <label for="newTaskName">Task Name</label>
+                             <input type="text" class="form-control" id="newTaskName" placeholder="Task Name..." required/>
+                         
+                         <div class="valid-feedback">Looks good!</div>
+                         <div class="invalid-feedback">Please provide a valid name.</div>
                         </div>
+                       
+                         <!-- Task Desciption -->
                         <div class="form-group">
-                          <label for="newTaskNameInput">Name</label>
-                          <input type="text" class="form-control" id="newTaskNameInput" />
+                           <label for="newTaskDescription">Description</label>
+                           <input
+                           type="text"
+                           class="form-control"
+                           id="newTaskDescription"
+                           placeholder="Description of task..." 
+                           required/>                     
+                         <div class="invalid-feedback">Please provide a valid description.</div>
+                         <div class="valid-feedback">Looks good!</div>
                         </div>
-                        <div class="form-group">
-                          <label for="newTaskDescription">Description</label>
-                          <textarea
-                            type="text"
-                            class="form-control"
-                            id="newTaskDescription"
-                          ></textarea>
-                        </div>
-                        <div class="form-row">
-                          <div class="form-group col">
-                            <label for="newTaskAssignedTo">Assigned To</label><br>
-                            <button type="button" type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#first-modal">Message @</button>
-                                <div>
-                                  <div class="container">
-                                    <div id="first-modal" class="modal fade" tabindex="-1" role="dialog">
-                                      <div class="modal-dialog">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <h5 class="modal-title">New Message to @</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            
-                                          </div>
-                                          <div class="modal-body">
-                                            <form>
-                                              <div class="mb-3">
-                                                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                                <input type="text" class="form-control" id="recipient-name">
-                                              </div>
-                                              <div class="mb-3">
-                                                <label for="message-text" class="col-form-label">Message:</label>
-                                                <textarea class="form-control" id="message-text"></textarea>
-                                              </div>
-                                            </form>
-                      
-                                          </div>
-                                          <div class="modal-footer">
-                                            
-                                              <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
-                                              <button type="button" class="btn btn-secondary btn-sm">Send message</button>
-                                            
-                                          </div>
-                                        </div><!-- /.modal-content -->
-                                      </div><!-- /.modal-dialog -->
-                                    </div><!-- /.modal -->
-                                    
-                                  </div>
-                                </div>
-                          </div>
-                          <div class="form-group col">
-                            <label for="newTaskDueDate">Due Date</label>
-                            <input type="date" class="form-control" id="newTaskDueDate" />
-                          </div>
-                        </div>
+                         
+                       <!-- AssignedTo -->
+                         <div class="form-group">
+                           <label for="newTaskAssignedTo">Assigned To</label>
+                           <input type="text" class="form-control" id="newTaskAssignedTo" placeholder="Assigned to..." required/>
+                         
+                         <div class="valid-feedback">Looks good!</div>
+                         <div class="invalid-feedback">Please provide a valid name.</div>
+                         </div>
+                         <!-- Duedate -->
+                     <div class="form-row">
+                         <div class="form-group col">
+                           <label for="newTaskDuedate">Due Date</label>
+                           <input class="form-control" type="date" id="newTaskDuedate"/>
+                         <div class="valid-feedback">Looks good!</div>
+                         <div class="invalid-feedback">Please provide a valid date.</div>
+                        </div>  
+                     </div>
+                     <div class="form-row">
+                         <div class="form-group col">
+                           <label for="newTaskStatus">Status:</label>                  
+                           <select class="form-select" id="newTaskStatus">
+                            <option selected disabled value="">Choose...</option>
+                            <option for="to-do" id="to-do">To-do</option>
+                            <option for="in-progress" id="in-progress">In Progress</option>
+                            <option for="review" id="review">Review</option>
+                            <option for="done" id="done">Done</option>
+                          </select>
+                         <div class="invalid-feedback">Please click a status.</div>
+                         </div>
+                     </div>
+                     <div class="modal-footer">
+                         <button class="btn btn-warning" type="submit" id="taskSubmit">Submit</button>
+                         <button class="clear btn btn-secondary">Reset</button>
+                     </div>
+                     </form>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+         </div>
+     </div> 
+     
+    
 
-                        <div class="form-row">
-                          <div class="form-group col">
-                            <label for="status">Status:</label>
-                            
-                          </div>
-                          <div class="form-group col">
-                                <input type="radio" id="to-do" name="status" value="to-do">
-                                <label for="to-do">To-do</label><br>
-                                <input type="radio" id="in-progress" name="status" value="in-progress">
-                                <label for="in-progress">In Progress</label><br>
-                                <input type="radio" id="review" name="status" value="review">
-                                <label for="review">Review</label><br>
-                                <input type="radio" id="done" name="status" value="done">
-                                <label for="done">Done</label><br>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-warning">Submit</button>
-                <button class="btn btn-secondary">Reset</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Recipient:</label>
-                    <input type="text" class="form-control" id="recipient-name">
-                  </div>
-                  <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Message:</label>
-                    <textarea class="form-control" id="message-text"></textarea>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-
-          
-
+     <script type = "text/javascript" src="/HPS_Project/js/taskManager.js"></script>      
+    <script type = "text/javascript" src="/HPS_Project/js/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
