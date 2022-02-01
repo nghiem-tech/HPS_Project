@@ -1,419 +1,259 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javaScript" src="index.j"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Our Tab Title -->
+  <title>Hello, welcome to TASKPLANR!</title>
+</head>
 
-    <title>Hello, welcome to TASKPLANR!</title>
-    <style>
-      body, main { height: 100%;}
-      @media (min-width: 992px) {
+<!-- Navigation Bar -->
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <h1 class="is-active">Taskplanr</h1>
 
-      }
+      <div class="menu">
 
-      .card {
-        min-width: 272px;
-        max-width: 272px;
-        height: auto;
-        background-color: #ebecf0;
-      }
-
-      .sortable-item { 
-        cursor: grab;
-        transition: background-color 0.2 ease-in !important;
-
-      }
-
-      .sortable-item:hover {
-        background-color: rgba(0,0,0, 0.01)
-      }
-
-      #button {
-        position: relative;
-        left: 68px;
+        <div class="dropdown show">
+          <a class="btn btn-sm btn-outline-light dropdown-toggle mr-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Urgency 
+          </a>
         
-        width: 50px;
-        height: 15px;
-        font-size: xx-small;
-        
-      }
-      #button:hover {
-        background-color: #FFD700;
-        
-
-      }
-
-      .navbar-brand{
-        display: absolute;
-        top: 50%;
-        bottom: 50%;
-        transform: translate(-50%, -50%)
-      }
-    </style>
-    
-  </head>
-
-  <body class="bg-light text-dark">
-    <!-- Start your project here-->
-    <header class="fixed-top mb-4">
-      <div class="bg-white border-bottom p-3">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2 d-flex justify-content-md-start" >
-              <img src="Images/TASKPLANR..png" class="img-responsive" style="max-width:50%; max-height:100%;" alt="Logo" ></div>
-            <div class="col-md-5 d-flex justify-content-md-center">
-              
-            </div>
-            <div class="col-md-5 d-flex justify-content-md-end"></div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#"></a>
+            <a class="dropdown-item" href="#">Due date</a>
+            <a class="dropdown-item" href="#">Task</a>
           </div>
-        </header>      
-        
+        </div>
+
+        <div class="dropdown show">
+          <a class="btn btn-sm btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Assignees
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Hon Sang Kong</a>
+            <a class="dropdown-item" href="#">Sajo John</a>
+            <a class="dropdown-item" href="#">Phoi Nghiem</a>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-7">
-          <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand"><h2>Team_HSP Board</h2></a>
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search Task..." aria-label="Search">
-              <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
-            </form>
 
-            <div class="dropdown">
-              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Quick Filter
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                <a class="dropdown-item" href="#">Name</a>
-                <a class="dropdown-item" href="#">Due date</a>
-                <a class="dropdown-item" href="#">Task</a>
-              </div>
-            </div>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search ... " aria-label="Search" style="height: 2rem; font-size: 13px;">
+        <button class="btn btn-sm btn-warning my-2 my-sm-0" type="submit" style="color:#fff;">Search</button>
+      </form>
 
-            <div class="dropdown">
-              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Assignees
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Hon</a>
-                <a class="dropdown-item" href="#">Sajo</a>
-                <a class="dropdown-item" href="#">Phoi</a>
-              </div>
-            </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
 
-          </nav>
-        </div>
-        <div class="col-md-3">
-        </div>
-      </div>
-      <main class="container-fluid">
-        <section class="d-flex align-items-start h-100" data-perfect-scrollbar="true" style="position: relative" data-sortable="sortable">
-          <div class="card shadow-1-strong m-3 p-2 pb-0">
-            <div class="card-header d-flex justify-content-between pl-1 pr-0 pb-3 border-0">
-              <p class="mb-0"><strong>To-Do</strong></p>
-              <button type="button" class="btn btn-link text-reset m-0 py-0 px-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
-                  <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
-                  <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
-                </svg>
-              </button>
-            </div>
-            <div class="sortable-item"></div>
-              <div class="card-body rounded bg-white shadow-3 mb-2 p-4">Item 1
-                
-                <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-                <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
+<body>
+<!-- Team Name Board starts here-->
+<div class="team-name">
+  <a href="#">
+     <span></span>
+     <span></span>
+     <span></span>
+     <span></span>
+     Team_HSP Board
+  </a>
+  
+<!-- Task 5: Date Display starts here-->
+<form id="timezone">
+    <span id="date-display"></span>
+    <span id="time-display">loading</span>
+</form>
 
-                
-              </div>
-              <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 2
-                
-                <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-                <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-              </div>
-              <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 3
-                
-                <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-                <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-              </div>
-              <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 4
-                
-                <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-                <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-              </div>
-              <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 5
-                
-                <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-                <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-              </div>
+<!-- Clear completed task button starts here-->
+  <button class="clear-btn" id="clear-btn" data-clear-complete-tasks-button onclick="todoButtons.deleteAll()">
+    Clear completed tasks <i class='bx bx-reset'></i>
+  </button>
+</div>
 
-              <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 6
-                
-                <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-                <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-              </div>
-              
-             
-            <div class="card-footer">
-              <button type="button" class="btn btn-link btn-block text-reset" data-toggle="modal" data-target="#reg-modal" data-ripple-color="dark" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                </svg>
-                Add a card
-              </button>
-            </div>
+<!-- "Add a new Task" Modal content starts here -->
+  <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">  
+  <!--Modal Bubble-->  
+  <div class="modal-dialog">
+  <!--Modal Content-->    
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="model-title">New Task</h5>
+            <button type="button close-modal" class="close" id="close-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
-          <div class="card shadow-1-strong m-3 p-2 pb-0">
-            <div class="card-header d-flex justify-content-between pl-1 pr-0 pb-3 border-0">
-              <p class="mb-0"><strong>In-Progress</strong></p>
-              <button type="button" class="btn btn-link text-reset m-0 py-0 px-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-menu-button-fill" viewBox="0 0 16 16">
-                  <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5v2A1.5 1.5 0 0 0 1.5 5h8A1.5 1.5 0 0 0 11 3.5v-2A1.5 1.5 0 0 0 9.5 0h-8zm5.927 2.427A.25.25 0 0 1 7.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0l-.396-.396zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
-                </svg>
-              </button>
-            </div>
-            <div class="sortable-item"></div>
-            <div class="card-body rounded bg-white shadow-3 mb-2 p-4">Item 1
-                
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-
-              
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 2
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 3
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 4
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 5
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-              
-             
-            <div class="card-footer">
-              <button type="button" class="btn btn-link btn-block text-reset" data-toggle="modal" data-target="#reg-modal" data-ripple-color="dark" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                </svg>
-                Add a card
-              </button>
-            </div>
-          </div>
-          <div class="card shadow-1-strong m-3 p-2 pb-0">
-            <div class="card-header d-flex justify-content-between pl-1 pr-0 pb-3 border-0">
-              <p class="mb-0"><strong>Review</strong></p>
-              <button type="button" class="btn btn-link text-reset m-0 py-0 px-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-                  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-                </svg>
-              </button>
-            </div>
-            <div class="sortable-item"></div>
-            <div class="card-body rounded bg-white shadow-3 mb-2 p-4">Item 1
-                
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-
-              
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 2
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 3
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 4
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 5
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-              
-             
-            <div class="card-footer">
-              <button type="button" class="btn btn-link btn-block text-reset" data-toggle="modal" data-target="#reg-modal" data-ripple-color="dark" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                </svg>
-                Add a card
-              </button>
-            </div>
-          </div>
-          <div class="card shadow-1-strong m-3 p-2 pb-0">
-            <div class="card-header d-flex justify-content-between pl-1 pr-0 pb-3 border-0">
-              <p class="mb-0"><strong>Done</strong></p>
-              <button type="button" class="btn btn-link text-reset m-0 py-0 px-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
-                  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
-                </svg>
-              </button>
-            </div>
-            <div class="card-body rounded bg-white shadow-3 mb-2 p-4">Item 1
-                
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-
-              
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 2
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 3
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 4
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-            <div class="card-body rounded bg-white shadow-2 mb-2 p-4">Item 5
-              
-              <button id="button" type="button" class="btn btn-primary btn-sm p-0" data-toggle="modal" data-target="#reg-modal">Edit</button>
-              <button id="button" type="button" class="btn btn-danger btn-sm p-0">Delete</button>
-            </div>
-              
-             
-            <div class="card-footer">
-              <button type="button" class="btn btn-link btn-block text-reset" data-toggle="modal" data-target="#reg-modal" data-ripple-color="dark" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                </svg>
-                Add a card
-              </button>
-            </div>
-          </div>
-        </section>
-      </main>
-    
-    <!-- End your project here-->
-
-     <!-- Optional JavaScript -->
-
-     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
- <!-- "Add a new Task" Modal content starts here -->
-     <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-       <!--Modal Bubble-->  
-       <div class="modal-dialog">
-         <!--Modal Content-->    
-             <div class="modal-content">
-               <div class="modal-header">
-                 <h5 class="modal-title" id="model-title">New Task</h5>
-                 <button type="button close-modal" class="close" id="close-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-               </div>
-               <div class="modal-body">
-                 <div class="container">
-                   <div class="row">
-                     <div class="col">
-                       <!-- <div id="errorMessage"></div> -->
-                     <form id="newTaskForm" action="formHandler.php" method="post" >
-                       <!-- New Task Name -->  
-                        <div class="form-group">
-                           <label for="newTaskName">Task Name</label>
-                             <input type="text" class="form-control" id="newTaskName" placeholder="Task Name..." required/>
-                         
-                         <div class="valid-feedback">Looks good!</div>
-                         <div class="invalid-feedback">Please provide a valid name.</div>
-                        </div>
-                       
-                         <!-- Task Desciption -->
-                        <div class="form-group">
-                           <label for="newTaskDescription">Description</label>
-                           <input
-                           type="text"
-                           class="form-control"
-                           id="newTaskDescription"
-                           placeholder="Description of task..." 
-                           required/>                     
-                         <div class="invalid-feedback">Please provide a valid description.</div>
-                         <div class="valid-feedback">Looks good!</div>
-                        </div>
-                         
-                       <!-- AssignedTo -->
-                         <div class="form-group">
-                           <label for="newTaskAssignedTo">Assigned To</label>
-                           <input type="text" class="form-control" id="newTaskAssignedTo" placeholder="Assigned to..." required/>
-                         
-                         <div class="valid-feedback">Looks good!</div>
-                         <div class="invalid-feedback">Please provide a valid name.</div>
-                         </div>
-                         <!-- Duedate -->
-                     <div class="form-row">
-                         <div class="form-group col">
-                           <label for="newTaskDuedate">Due Date</label>
-                           <input class="form-control" type="date" id="newTaskDuedate"/>
-                         <div class="valid-feedback">Looks good!</div>
-                         <div class="invalid-feedback">Please provide a valid date.</div>
-                        </div>  
-                     </div>
-                     <div class="form-row">
-                         <div class="form-group col">
-                           <label for="newTaskStatus">Status:</label>                  
-                           <select class="form-select" id="newTaskStatus">
-                            <option selected disabled value="">Choose...</option>
-                            <option for="to-do" id="to-do">To-do</option>
-                            <option for="in-progress" id="in-progress">In Progress</option>
-                            <option for="review" id="review">Review</option>
-                            <option for="done" id="done">Done</option>
-                          </select>
-                         <div class="invalid-feedback">Please click a status.</div>
-                         </div>
-                     </div>
-                     <div class="modal-footer">
-                         <button class="btn btn-warning" type="submit" id="taskSubmit">Submit</button>
-                         <button class="clear btn btn-secondary">Reset</button>
-                     </div>
-                     </form>
-                     </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  
+  <!-- The Form starts here -->
+                <form id="newTaskForm">
+                  <!-- New Task Name -->  
+                   <div class="form-group">
+                      <label for="newTaskName">Task Name</label>
+                        <input type="text" class="form-control" id="newTaskName" placeholder="Task Name..." required/>
+                    
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please provide a valid name more than 5 characters.</div>
                    </div>
-                 </div>
-               </div>
-             </div>
-         </div>
-     </div> 
-     
-    
+                
+                  <!-- Task Description -->
+                   <div class="form-group">
+                      <label for="newTaskDescription">Description</label>
+                      <input
+                      type="text"
+                      class="form-control"
+                      id="newTaskDescription"
+                      placeholder="Description of task..." 
+                      required/>                     
+                    <div class="invalid-feedback">Please provide a valid description more than 5 characters.</div>
+                    <div class="valid-feedback">Looks good!</div>
+                   </div>
+                    
+                  <!-- AssignedTo -->
+                    <div class="form-group">
+                      <label for="newTaskAssignedTo">Assigned To</label>
+                      <input type="text" class="form-control" id="newTaskAssignedTo" placeholder="Assigned to..." required/>
+                    
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please provide a valid name more than 5 characters.</div>
+                    </div>
+                  
+                  <!-- Duedate -->
+                    <div class="form-row">
+                        <div class="form-group col">
+                          <label for="newTaskDuedate">Due Date</label>
+                          <input class="form-control" type="date" id="newTaskDuedate"/>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please provide a valid date.</div>
+                      </div>  
+                    </div>
+                  <!-- Status Priority -->
+                    <div class="form-row">
+                        <div class="form-group col">
+                          <label for="newTaskStatus">Status:</label>                  
+                          <select class="form-control" id="newTaskStatus">
+                          <option selected disabled value="">Choose...</option>
+                          <option value="to-do">To-do</option>
+                          <option value="inProgress">In Progress</option>
+                          <option value="review">Review</option>
+                          <option value="done">Done</option>
+                        </select>
+                        <div class="invalid-feedback">Please click a status.</div>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" type="submit" id="taskSubmit">Submit</button>
+                    <button class="clear btn btn-secondary" type="reset">Reset</button>
+                </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div> 
 
-     <script type = "text/javascript" src="/HPS_Project/js/taskManager.js"></script>      
-    <script type = "text/javascript" src="/HPS_Project/js/index.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+  <!-- THE MAIN CONTENT STARTS HERE -->
+  <main>
+      <!-- To do list -->
+        <div class="todo-container">
+          <div class="status card" id="to-do" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <div class="d-flex justify-content-between align-items-center card-header" id="title"><strong>To do</strong>
+                <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+              </div>
+              <!--ADD TASK CARD -->
+              <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+                <i class='bx bx-plus'></i> 
+                <div style="font-size: 12px;">Add a card</div>
+              </button>
+              <!-- This is where the task cards will be added -->
+                <ul class="list-group" id="toDoList" data-drop-target="true">
+                  <!-- THIS IS THE LIST TASK CARD -->
+                  <!--<li class="task" id="task" draggable="true" ondragstart="drag(event)">
+                  <div class="task-content">
+                  <p class="card-title" style="font-weight:900;">${name}</p>
+                  <p class="card-text">
+                  <div>${description}</div>
+                  <div>${assignedTo}</div>
+                  <div id="due-date">${dueDate}</div>
+                  </p>
+                  <div class="card-text" id="priority" style="font-weight:500; background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,111,29,1) 50%, rgba(252,176,69,1) 100%); padding: 0 10px; border-radius: 10px; text-decoration: capitalize; text-align: center;">${status}</div>
+                  </div>
+                  <span class="edit">
+                  <i class='bx bx-pencil'class="btn btn-primary btn-sm p-0"></i>
+                  </span>
+                  <span class="delete">
+                  <i class='bx bx-x'></i>
+                  </span>
+              </li>-->
+                </ul>
+          </div>
+
+          <!-- In-Progress list -->
+          <div class="status card" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="d-flex justify-content-between align-items-center card-header" id="title"><strong>In Progress</strong>
+              <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+            </div>
+            <!--ADD TASK CARD -->
+            <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+              <i class='bx bx-plus'></i> 
+              <div style="font-size: 12px;">Add a card</div>
+            </button>
+            <ul class="list-group" id="inProgressList" data-drop-target="true"></ul>
+          </div>
+          
+         <!-- Review list -->
+          <div class="status card" id="review" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="d-flex justify-content-between align-items-center card-header" id="title"><strong>Review</strong>
+              <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+            </div>
+            <!--ADD TASK CARD -->
+            <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+              <i class='bx bx-plus'></i> 
+              <div style="font-size: 12px;">Add a card</div>
+            </button>
+            <ul class="list-group" id="reviewList" data-drop-target="true"></ul>
+          </div>
+  
+          <!--Done list -->
+          <div class="status card" id="done" data-drop-target="true" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="d-flex justify-content-between align-items-center card-header" id="title"><strong>Done</strong>
+              <button class="btn btn-sm"><i class='bx bx-dots-horizontal-rounded' style="font-size: 20px; letter-spacing: 2px; opacity: 0.5;"></i></button>
+            </div>
+            <!--ADD TASK CARD -->
+            <button class="btn btn-dark btn-sm d-flex justify-content-between align-items-center" id="add_btn" data-target="#reg-modal" class="btn btn-link btn-block text-reset" data-toggle="modal" data-ripple-color="dark" type="button">
+              <i class='bx bx-plus'></i> 
+              <div style="font-size: 12px;">Add a card</div>
+            </button>
+            <ul class="list-group" id="doneList" data-drop-target="true"></ul>
+          </div> 
+          
+      </div>     
+    </main>
+
+ 
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src=" https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- Optional JavaScript -->
+    <script src="js/taskManager.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
 </html>
