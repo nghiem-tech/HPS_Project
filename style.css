@@ -367,33 +367,9 @@ main {
   cursor: pointer;
 }
 
-.task .edit-button {
-  position: absolute;
-  right: 1.3rem;
-  top: 2px;
-  font-size: 1rem;
-  color: #ccc;
-  cursor: pointer;
-}
 
-.task .edit-button:hover {
-  color: rgb(34, 216, 116);
-}
-
-.task .delete-button {
-  position: absolute;
-  right: 0rem;
-  top: 0rem;
-  font-size: 1.3rem;
-  color: #ccc;
-  cursor: pointer;
-}
-
-.task .delete-button:hover {
-  color: rgb(255, 0, 0);
-}
-
-.done-button {
+.done-button,
+.delete-button {
   
   font-size: 11px;
   border-radius: 3em;

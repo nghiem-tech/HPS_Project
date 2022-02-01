@@ -1,40 +1,29 @@
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const html = `<li class="task card" id="task" draggable="true" data-task-id="${id}" ondragstart="drag(event)">
-  <div class="row align-items-start">
-    <p class="card-title" style="font-weight:900;">${name}</p>
-  </div>
-  <div class="row">
-      <p class="card-text">${description}</p>
-  </div>
-
-  <br>
-
-  <div class="row">
-    <div class="col"><p class="card-text">${assignedTo}</p></div>
-    <div class="col"><p class="card-text">${dueDate}</p></div>  
-  </div>
-
-  <br>
-
-  <div class="row">
-    <div class="col">
-      <p class="card-text" id="priority" style="font-weight:500; border: 1px solid #C8A2C8; padding: 0 10px; border-radius: 10px; text-decoration: capitalize; text-align: center;"><b>${status}</b></p>
+        <div class="card-body">
+        <h6 class="card-title">${name}</h6>
+        <p class="card-text">
+          ${description}
+        </p>
+        <p class="card-text">${assignedTo}</p>
+        <p class="card-text">${dueDate}</p>
+        <div class="row">
+          <div class="col-6">
+            <p class="card-text"><b>${status}</b></p>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-success done-button" onclick="appendIt()">
+              Done
+            </button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-danger delete-button">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="col">
-      <button class="btn btn-outline-success btn-sm done-button" onclick="appendIt()">
-        Done
-      </button>
-    </div>
-    
-  </div>
-
-  <span class="edit-button">
-      <i class='bx bx-pencil'class="btn btn-primary btn-sm p-0"></i>
-  </span>
-  <span class="delete-button">
-      <i class='bx bx-x'></i>
-  </span>
 </li>`;
   return html;
 };
@@ -63,10 +52,15 @@ class TaskManager {
   }
 
   getTaskById(taskId) {
+    // Create a variable to store the found task
     let foundTask;
+    // Loop over the tasks and find the task with the id passed as a parameter
     for (let i = 0; i < this.tasks.length; i++) {
+      // Get the current task in the loop
       const task = this.tasks[i];
+      // Check if its the right task by comparing the task's id to the id passed as a parameter
       if (task.id === taskId) {
+        // Store the task in the foundTask variable
         foundTask = task;
       }
     }
@@ -166,7 +160,26 @@ class TaskManager {
       this.currentId = Number(currentId);
     }
   }
+  
+  deleteTask(taskId) {
+    // Create an empty array and store it in a new variable, newTasks
+    const newTasks = [];
 
+    // Loop over the tasks
+    for (let i = 0; i < this.tasks.length; i++) {
+      // Get the current task in the loop
+      const task = this.tasks[i];
+
+      // Check if the task id is not the task id passed in as a parameter
+      if (task.id !== taskId) {
+        // Push the task to the newTasks array
+        newTasks.push(task);
+      }
+    }
+
+    // Set this.tasks to newTasks
+    this.tasks = newTasks;
+  }
 }
 
 // Drag and Drop Functionality
@@ -182,6 +195,7 @@ function allowDrop(ev) {
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
+  ev.currentTarget.appendChild(document.getElementById(data));
 }
 
 // Move task cards into done list upon click 
@@ -189,6 +203,7 @@ function drop(ev) {
 function appendIt() {
   const source = document.getElementById("task");
   document.getElementById("doneList").appendChild(source);
+  ev.dataTransfer.setData("text", ev.target.id);
  }
 
 
