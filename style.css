@@ -367,7 +367,7 @@ main {
   cursor: pointer;
 }
 
-.task .edit {
+.task .edit-button {
   position: absolute;
   right: 1.3rem;
   top: 2px;
@@ -376,11 +376,11 @@ main {
   cursor: pointer;
 }
 
-.task .edit:hover {
+.task .edit-button:hover {
   color: rgb(34, 216, 116);
 }
 
-.task .delete {
+.task .delete-button {
   position: absolute;
   right: 0rem;
   top: 0rem;
@@ -389,8 +389,15 @@ main {
   cursor: pointer;
 }
 
-.task .delete:hover {
+.task .delete-button:hover {
   color: rgb(255, 0, 0);
+}
+
+.done-button {
+  
+  font-size: 11px;
+  border-radius: 3em;
+  padding: 1px 1.5em;
 }
 
 @media (max-width: 815px) {
@@ -413,10 +420,10 @@ main {
 /* --- Main Content: Rendered Cards --- */
 li {
   list-style-type: none;
+  justify-content: start;
 }
 
 .list-group {
 	max-width: 400x;
-	min-height: 25px;
 	transition: 0.3s;
 }

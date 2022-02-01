@@ -1,8 +1,11 @@
-// Initialize a new TaskManager with currentId set to 0
+//Task 7: Initialize a new TaskManager with currentId set to 0
 const taskManager = new TaskManager(0);
 
-// Task 5: Finding and Display the Date Object
-
+//Task 9: Load the tasks from localStorage
+taskManager.load();
+// Render the loaded tasks to the page
+taskManager.render();
+// Task 5
 function printTime() {
   let d = new Date();
   let hours = d.getHours();
@@ -85,10 +88,8 @@ if (mm < 10) {
 
 today = yyyy + '-' + mm + '-' + dd;
 document.getElementById("newTaskDuedate").setAttribute("min", today);
-
-
-// Task 4: Select the New Task Form
-const newTaskForm = document.querySelector('#newTaskForm');
+// Select the New Task Form
+const newTaskForm = document.querySelector("#newTaskForm");
 
 // Add an 'onsubmit' event listener
 newTaskForm.addEventListener("submit", (event) => {
@@ -201,7 +202,23 @@ newTaskForm.addEventListener("submit", (event) => {
       validateStatus.value
     );
     clearFormFields();
-    // taskManager.save();
+    taskManager.save();
     taskManager.render();
   }
 });
+
+const taskList = document.querySelector("#toDoList");
+taskList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("done-button")) {
+    const parentTask =
+      event.target.parentElement.parentElement.parentElement.parentElement;
+    const taskId = Number(parentTask.dataset.taskId);
+    const task = taskManager.getTaskById(taskId);
+    task.status = "Done";
+    taskManager.save();
+    taskManager.render();
+  }
+
+});
+
+

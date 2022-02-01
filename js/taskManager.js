@@ -1,19 +1,39 @@
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
-  const html =  `<li class="task" id="task" draggable="true" ondragstart="drag(event)">
-  <div class="task-content">
-  <p class="card-title" style="font-weight:900;">${name}</p>
-  <p class="card-text">
-  <div>${description}</div>
-  <div>${assignedTo}</div>
-  <div id="due-date">${dueDate}</div>
-  </p>
-  <div class="card-text" id="priority" style="font-weight:500; background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,111,29,1) 50%, rgba(252,176,69,1) 100%); padding: 0 10px; border-radius: 10px; text-decoration: capitalize; text-align: center;">${status}</div>
+  const html = `<li class="task card" id="task" draggable="true" data-task-id="${id}" ondragstart="drag(event)">
+  <div class="row align-items-start">
+    <p class="card-title" style="font-weight:900;">${name}</p>
   </div>
-  <span class="edit">
-  <i class='bx bx-pencil'class="btn btn-primary btn-sm p-0"></i>
+  <div class="row">
+      <p class="card-text">${description}</p>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col"><p class="card-text">${assignedTo}</p></div>
+    <div class="col"><p class="card-text">${dueDate}</p></div>  
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col">
+      <p class="card-text" id="priority" style="font-weight:500; border: 1px solid #C8A2C8; padding: 0 10px; border-radius: 10px; text-decoration: capitalize; text-align: center;"><b>${status}</b></p>
+    </div>
+
+    <div class="col">
+      <button class="btn btn-outline-success btn-sm done-button" onclick="appendIt()">
+        Done
+      </button>
+    </div>
+    
+  </div>
+
+  <span class="edit-button">
+      <i class='bx bx-pencil'class="btn btn-primary btn-sm p-0"></i>
   </span>
-  <span class="delete">
-  <i class='bx bx-x'></i>
+  <span class="delete-button">
+      <i class='bx bx-x'></i>
   </span>
 </li>`;
   return html;
@@ -22,25 +42,39 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
 // Create the TaskManager class
 class TaskManager {
   constructor(currentId = 0) {
+    this.tasks = [];
     this.currentId = currentId;
-    this._tasks = [];
-}
-get tasks() {
-    return this._tasks
-}
-addTask(name, description, assignedTo, dueDate, status) {
-    const task = {
-        id: this.currentId++,
-        name: name,
-        description: description,
-        assignedTo: assignedTo,
-        dueDate: dueDate,
-        status: status
+  }
 
+  addTask(name, description, assignedTo, dueDate, status) {
+    // Create a task object that we will push to the list of tasks
+
+    const task = {
+      // Increment the current Id for each new task
+      id: this.currentId++,
+      name: name,
+      description: description,
+      assignedTo: assignedTo,
+      dueDate: dueDate,
+      status: status,
+    };
+
+    this.tasks.push(task);
+  }
+
+  getTaskById(taskId) {
+    let foundTask;
+    for (let i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i];
+      if (task.id === taskId) {
+        foundTask = task;
+      }
     }
-    this.tasks.push(task)
-}
-render() {
+    // Return the found task
+    return foundTask;
+  }
+
+  render() {
     const toDoTasksHtmlList = [];
     const inProgressTasksHtmlList = [];
     const reviewTasksHtmlList = [];
@@ -98,28 +132,71 @@ render() {
     reviewTasksList.innerHTML = reviewTaskHtml;
     doneTasksList.innerHTML = doneTaskHtml;
   }
+
+  save() {
+    // Create a JSON string of the tasks
+    const tasksJson = JSON.stringify(this.tasks);
+
+    // Store the JSON string in localStorage
+    localStorage.setItem("tasks", tasksJson);
+
+    // Convert the currentId to a string;
+    const currentId = String(this.currentId);
+
+    // Store the currentId in localStorage
+    localStorage.setItem("currentId", currentId);
+  }
+
+  load() {
+    // Check if any tasks are saved in localStorage
+    if (localStorage.getItem("tasks")) {
+      // Get the JSON string of tasks in localStorage
+      const tasksJson = localStorage.getItem("tasks");
+
+      // Convert it to an array and store it in our TaskManager
+      this.tasks = JSON.parse(tasksJson);
+    }
+
+    // Check if the currentId is saved in localStorage
+    if (localStorage.getItem("currentId")) {
+      // Get the currentId string in localStorage
+      const currentId = localStorage.getItem("currentId");
+
+      // Convert the currentId to a number and store it in our TaskManager
+      this.currentId = Number(currentId);
+    }
+  }
+
 }
 
 // Drag and Drop Functionality
 
 function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-  }
+  ev.dataTransfer.setData("text", ev.target.id);
+}
 
-  function allowDrop(ev) {
-    ev.preventDefault();
-  }
+function allowDrop(ev) {
+  ev.preventDefault();
+}
 
-  function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.currentTarget.appendChild(document.getElementById(data));
-  }
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+}
+
+// Move task cards into done list upon click 
+
+function appendIt() {
+  const source = document.getElementById("task");
+  document.getElementById("doneList").appendChild(source);
+ }
+
 
 // Hamburger animation for the navigation bar 
 
 const hamburger = document.querySelector('.hamburger');
 
 hamburger.addEventListener('click', function () {
-  this.classList.toggle('is-active');
+this.classList.toggle('is-active');
 });
+
