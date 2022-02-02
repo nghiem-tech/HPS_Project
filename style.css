@@ -302,15 +302,15 @@ main {
 .todo-container {
   display: flex; 
   flex-wrap: wrap;
+  justify-content: center;
   align-items: start;
   margin: 1rem;
-  
   white-space: nowrap;
 }
 
 .status {
   width: 24em;
-  margin-left: 0.5rem;
+  margin-left: 0.5em;
   transition: 0.3s ease;
 }
 
@@ -370,11 +370,11 @@ main {
   }
 }
 
-@media (min-width: 1800px) {
+@media (max-width: 1600px) and (min-width: 1200px) {
   .todo-container {
-    display: flex;
-    justify-content: center;
-    object-fit: contain;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
   }
 }
 
