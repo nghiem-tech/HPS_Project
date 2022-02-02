@@ -3,7 +3,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
     <li class="list-group-item card m-1" id="task" draggable="true" ondragstart="drag(event)" data-task-id=${id}>
         <div class="d-flex mt-2 justify-content-between align-items-center">
             <h6>${name}</h6>
-            <span class="badge ${status === 'To-do' ? 'badge-danger' : 'badge-success'} ${status === 'In Progress' ? 'badge-warning' : 'badge-success'} ${status === 'Review' ? 'badge-info' : 'badge-success'}" style="border: 1px solid var(--light) color: var(--light);">${status}</span>
+            <span class="badge ${status === 'To-do' ? 'badge-danger' : 'badge-success'} ${status === 'In Progress' ? 'badge-info' : 'badge-success'} ${status === 'Review' ? 'badge-warning' : 'badge-success'}" style="border: 1px solid var(--light) color: var(--light);">${status}</span>
         </div>
         <div class="d-flex mb-4 justify-content-between">
             <small>${assignedTo}</small>
@@ -12,7 +12,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
         <small>${description}</small>
         <div class="d-flex justify-content-end">
         <button class="btn btn-outline-success done-button mr-1 ${status === 'Done' ? 'invisible' : 'visible'}" >
-        Done
+        Mark as Done
       </button>
             <button class="btn btn-outline-danger delete-button">Delete</button>
         </div>
