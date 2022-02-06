@@ -203,3 +203,43 @@ newTaskForm.addEventListener("submit", (event) => {
     taskManager.render();
   }
 });
+
+const taskList = document.querySelector("#task-list");
+// Add an 'onclick' event listener to the Tasks List
+taskList.addEventListener("click", (event) => {
+  // Check if a "Done" button was clicked
+  if (event.target.classList.contains("done-button")) {
+    // Get the correct parent Task, yours might be slightly different
+    // Use console.log(event.target.parentElement) to see
+    const parentTask =
+      event.target.parentElement.parentElement.parentElement.parentElement;
+    // Get the taskId of the parent Task and turn it into a number.
+    const taskId = Number(parentTask.dataset.taskId);
+    // Get the task from the TaskManager using the taskId
+    const task = taskManager.getTaskById(taskId);
+    // Update the task status to 'DONE'
+    task.status = "Done";
+    taskManager.save();
+    // Render the tasks
+    taskManager.render();
+  }
+
+  // Check if a "Delete" button was clicked
+  if (event.target.classList.contains("delete-button")) {
+    // Get the parent Task
+    const parentTask =
+      event.target.parentElement.parentElement.parentElement.parentElement;
+
+    // Get the taskId of the parent Task.
+    const taskId = Number(parentTask.dataset.taskId);
+
+    // Delete the task
+    taskManager.deleteTask(taskId);
+
+    // Save the tasks to localStorage
+    taskManager.save();
+
+    // Render the tasks
+    taskManager.render();
+  }
+});
