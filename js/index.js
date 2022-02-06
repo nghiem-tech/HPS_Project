@@ -1,113 +1,115 @@
-// Initialize a new TaskManager with currentId set to 0
+// Task 7: Initialize a new TaskManager with currentId set to 0
 const taskManager = new TaskManager(0);
-
-// Task 5: Finding and Display the Date Object
+// Task 9: Load the tasks from localStorage
+taskManager.load();
+// Task 9: Render the loaded tasks to the page
+taskManager.render();
 
 function printTime() {
-  let d = new Date();
-  let hours = d.getHours();
-  let mins = d.getMinutes();
-  let secs = d.getSeconds();
-  let day = d.getDay();
-  let date = d.getDate();
-  let month = d.getMonth();
-  let year = d.getFullYear();
+    let d = new Date();
+    let hours = d.getHours();
+    let mins = d.getMinutes();
+    let secs = d.getSeconds();
+    let day = d.getDay();
+    let date = d.getDate();
+    let month = d.getMonth();
+    let year = d.getFullYear();
+    
+    const monthName = [
+    'January','February','March','April',
+    'May','June','July','August','September',
+    'October','November','December'
+  ];
   
-  const monthName = [
-  'January','February','March','April',
-  'May','June','July','August','September',
-  'October','November','December'
-];
-
-      switch (day){
-      
-          case 0:
-              day = "Sunday";
-              break;
-          case 1:
-              day = "Monday";
-              break;
-          case 2:
-              day = "Tuesday";
-              break;
-          case 3:
-              day = "Wednesday";
-              break;
-          case 4:
-              day = "Thursday";
-              break;
-          case 5:
-              day = "Friday";
-              break;
-          case 6:
-              day = "Saturday";
-              break;
-         }
+        switch (day){
+        
+            case 0:
+                day = "Sunday";
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case 6:
+                day = "Saturday";
+                break;
+           }
+    
+        if (d.getHours() >= 12){
+            ampm = "PM";
+        } else {
+            ampm = "AM";
+        }
+        
+        if(hours>12) {
+            hours = hours - 12;
+        } else {
+            hours = hours
+        }
+        if(mins<10){
+            
+            mins = "0" + mins;
+        }
+        if(secs<10){
   
-      if (d.getHours() >= 12){
-          ampm = "PM";
-      } else {
-          ampm = "AM";
-      }
-      
-      if(hours>12) {
-          hours = hours - 12;
-      } else {
-          hours = hours
-      }
-      if(mins<10){
-          
-          mins = "0" + mins;
-      }
-      if(secs<10){
+            secs = "0" + secs;
+        }
+   
+  month = month + 1; document.getElementById("time-display").innerHTML = hours + ":" + mins + ":" + secs + " " + ampm;
+  document.getElementById("date-display").innerHTML = day + ", " + date + "  " + monthName[month - 1] + "  " + year;
+  }
+  setTimeout(printTime, 1);
+  setInterval(printTime, 1000);
+  
+  // Blocks out previous dates on calendar 
+  
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1; 
+  let yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd
+  }
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+  
+  today = yyyy + '-' + mm + '-' + dd;
+  document.getElementById("newTaskDuedate").setAttribute("min", today);
+  
 
-          secs = "0" + secs;
-      }
- 
-month = month + 1; document.getElementById("time-display").innerHTML = hours + ":" + mins + ":" + secs + " " + ampm;
-document.getElementById("date-display").innerHTML = day + ", " + date + "  " + monthName[month - 1] + "  " + year;
-}
-setTimeout(printTime, 1);
-setInterval(printTime, 1000);
-
-// Blocks out previous dates on calendar 
-
-let today = new Date();
-let dd = today.getDate();
-let mm = today.getMonth() + 1; 
-let yyyy = today.getFullYear();
-if (dd < 10) {
-  dd = '0' + dd
-}
-if (mm < 10) {
-  mm = '0' + mm
-}
-
-today = yyyy + '-' + mm + '-' + dd;
-document.getElementById("newTaskDuedate").setAttribute("min", today);
-
-
-// Task 4: Select the New Task Form
 const newTaskForm = document.querySelector('#newTaskForm');
 
-// Add an 'onsubmit' event listener
-newTaskForm.addEventListener("submit", (event) => {
-  let validateName = document.querySelector("#newTaskName");
-  let validateDescription = document.querySelector("#newTaskDescription");
-  let validateAssignedTo = document.querySelector("#newTaskAssignedTo");
-  let validateDueDate = document.querySelector("#newTaskDuedate");
-  let validateStatus = document.querySelector("#newTaskStatus");
-  let validationFail = 0;
+newTaskForm.addEventListener('submit', (event) => {
 
-  event.preventDefault();
-  event.stopPropagation();
-  console.log("Task Name :" + validateName.value.length);
-  console.log("Task Description :" + validateDescription.value.length);
-  console.log("Task Assigned To :" + validateAssignedTo.value.length);
-  console.log("Task Due Date :" + validateDueDate.value);
-  console.log("Task Status:" + validateStatus.value);
+    let validateName = document.querySelector("#newTaskName");
+    let validateDescription = document.querySelector("#newTaskDescription");
+    let validateAssignedTo = document.querySelector("#newTaskAssignedTo");
+    let validateDueDate = document.querySelector("#newTaskDuedate");
+    let validateStatus = document.querySelector("#newTaskStatus");
+    let validationFail = 0;
 
-  // Call this to clear all the form fields after the submission 
+    event.preventDefault();
+    event.stopPropagation();
+
+    console.log("Task Name :" + validateName.value.length);
+    console.log("Task Description :" + validateDescription.value.length);
+    console.log("Task Assigned To :" + validateAssignedTo.value.length);
+    console.log("Task Due Date :" + validateDueDate.value);
+    console.log("Task Status:" + validateStatus.value);
+
+  // Call this to clear all the form fields after the submission
   const clearFormFields = () => {
         validateName.value = "";
         validateDescription.value = "";
@@ -199,47 +201,151 @@ newTaskForm.addEventListener("submit", (event) => {
       validateStatus.value
     );
     clearFormFields();
-    // taskManager.save();
+    taskManager.save();
     taskManager.render();
   }
 });
 
-const taskList = document.querySelector("#task-list");
-// Add an 'onclick' event listener to the Tasks List
-taskList.addEventListener("click", (event) => {
-  // Check if a "Done" button was clicked
-  if (event.target.classList.contains("done-button")) {
-    // Get the correct parent Task, yours might be slightly different
-    // Use console.log(event.target.parentElement) to see
-    const parentTask =
-      event.target.parentElement.parentElement.parentElement.parentElement;
-    // Get the taskId of the parent Task and turn it into a number.
-    const taskId = Number(parentTask.dataset.taskId);
-    // Get the task from the TaskManager using the taskId
-    const task = taskManager.getTaskById(taskId);
-    // Update the task status to 'DONE'
-    task.status = "Done";
-    taskManager.save();
-    // Render the tasks
-    taskManager.render();
-  }
+// Task 8 & Task 10 together 
+const tasksList = document.querySelector('#tasksList');
+tasksList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('done-button')) {
+        const parentTask = event.target.parentElement.parentElement;
 
-  // Check if a "Delete" button was clicked
-  if (event.target.classList.contains("delete-button")) {
-    // Get the parent Task
-    const parentTask =
-      event.target.parentElement.parentElement.parentElement.parentElement;
+        const taskId = Number(parentTask.dataset.taskId);
 
-    // Get the taskId of the parent Task.
-    const taskId = Number(parentTask.dataset.taskId);
+        const task = taskManager.getTaskById(taskId);
 
-    // Delete the task
-    taskManager.deleteTask(taskId);
+        task.status = 'Done';
 
-    // Save the tasks to localStorage
-    taskManager.save();
+        taskManager.save();
 
-    // Render the tasks
-    taskManager.render();
-  }
+        taskManager.render();
+    } 
+
+    // Check if a "Delete" button was clicked
+    if (event.target.classList.contains('delete-button')) {
+        // Get the parent Task
+        const parentTask = event.target.parentElement.parentElement;
+
+        // Get the taskId of the parent Task.
+        const taskId = Number(parentTask.dataset.taskId);
+
+        // Delete the task
+        taskManager.deleteTask(taskId);
+
+        // Save the tasks to localStorage
+        taskManager.save();
+
+        // Render the tasks
+        taskManager.render();
+    }
+});
+
+const inProgressTasksList = document.querySelector('#inProgressTasksList');
+
+inProgressTasksList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('done-button')) {
+        const parentTask = event.target.parentElement.parentElement;
+
+        const taskId = Number(parentTask.dataset.taskId);
+
+        const task = taskManager.getTaskById(taskId);
+
+        task.status = 'Done';
+
+        taskManager.save();
+
+        taskManager.render();
+    } 
+
+    // Check if a "Delete" button was clicked
+    if (event.target.classList.contains('delete-button')) {
+        // Get the parent Task
+        const parentTask = event.target.parentElement.parentElement;
+
+        // Get the taskId of the parent Task.
+        const taskId = Number(parentTask.dataset.taskId);
+
+        // Delete the task
+        taskManager.deleteTask(taskId);
+
+        // Save the tasks to localStorage
+        taskManager.save();
+
+        // Render the tasks
+        taskManager.render();
+    }
+});
+
+const reviewTasksList = document.querySelector('#reviewTasksList');
+
+reviewTasksList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('done-button')) {
+        const parentTask = event.target.parentElement.parentElement;
+
+        const taskId = Number(parentTask.dataset.taskId);
+
+        const task = taskManager.getTaskById(taskId);
+
+        task.status = 'Done';
+
+        taskManager.save();
+
+        taskManager.render();
+    } 
+
+    // Check if a "Delete" button was clicked
+    if (event.target.classList.contains('delete-button')) {
+        // Get the parent Task
+        const parentTask = event.target.parentElement.parentElement;
+
+        // Get the taskId of the parent Task.
+        const taskId = Number(parentTask.dataset.taskId);
+
+        // Delete the task
+        taskManager.deleteTask(taskId);
+
+        // Save the tasks to localStorage
+        taskManager.save();
+
+        // Render the tasks
+        taskManager.render();
+    }
+});
+
+const doneTasksList = document.querySelector('#doneTasksList');
+
+doneTasksList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('done-button')) {
+        const parentTask = event.target.parentElement.parentElement;
+
+        const taskId = Number(parentTask.dataset.taskId);
+
+        const task = taskManager.getTaskById(taskId);
+
+        task.status = 'Done';
+
+        taskManager.save();
+
+        taskManager.render();
+    } 
+
+    // Check if a "Delete" button was clicked
+    if (event.target.classList.contains('delete-button')) {
+        // Get the parent Task
+        const parentTask = event.target.parentElement.parentElement;
+
+        // Get the taskId of the parent Task.
+        const taskId = Number(parentTask.dataset.taskId);
+
+        // Delete the task
+        taskManager.deleteTask(taskId);
+
+        // Save the tasks to localStorage
+        taskManager.save();
+
+        // Render the tasks
+        taskManager.render();
+    }
 });

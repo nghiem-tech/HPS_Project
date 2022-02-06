@@ -1,171 +1,167 @@
-const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
-  const html =  `<li class="task" id="task" draggable="true" ondragstart="drag(event)">
-  <div class="task-content">
-  <p class="card-title" style="font-weight:900;">${name}</p>
-  <p class="card-text">
-  <div>${description}</div>
-  <div>${assignedTo}</div>
-  <div id="due-date">${dueDate}</div>
-  </p>
-  <div class="card-text" id="priority" style="font-weight:500; background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,111,29,1) 50%, rgba(252,176,69,1) 100%); padding: 0 10px; border-radius: 10px; text-decoration: capitalize; text-align: center;">${status}</div>
-  </div>
-  <span class="edit">
-  <i class='bx bx-pencil'class="btn btn-primary btn-sm p-0"></i>
-  </span>
-  <span class="delete">
-  <i class='bx bx-x'></i>
-  </span>
-</li>`;
-  return html;
-};
+// Task 7: Create Html 
+const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
+    <li class="list-group-item card m-1" id="task" draggable="true" ondragstart="drag(event)" data-task-id=${id}>
+        <div class="d-flex mt-2 justify-content-between align-items-center">
+            <h6>${name}</h6>
+            <span class="badge ${status === 'To-do' ? 'badge-danger' : 'badge-success'} ${status === 'In Progress' ? 'badge-info' : 'badge-success'} ${status === 'Review' ? 'badge-warning' : 'badge-success'}" style="border: 1px solid var(--light) color: var(--light);">${status}</span>
+        </div>
+        <div class="d-flex mb-4 justify-content-between">
+            <small>${assignedTo}</small>
+            <small>${dueDate}</small>
+        </div>
+        <small>${description}</small>
+        <div class="d-flex justify-content-end">
+        <button class="btn btn-outline-success done-button mr-1 ${status === 'Done' ? 'invisible' : 'visible'}" >
+        Mark as Done
+      </button>
+            <button class="btn btn-outline-danger delete-button">Delete</button>
+        </div>
+    </li>
+`;
 
-// Create the TaskManager class
+// Task 6: Create the TaskManager class
 class TaskManager {
-  constructor(currentId = 0) {
-    this.currentId = currentId;
-    this._tasks = [];
-}
-get tasks() {
-    return this._tasks
-}
-addTask(name, description, assignedTo, dueDate, status) {
-    const task = {
-        id: this.currentId++,
-        name: name,
-        description: description,
-        assignedTo: assignedTo,
-        dueDate: dueDate,
-        status: status
-
+    constructor(currentId = 0) {
+        this.tasks = [];
+        this.currentId = currentId;
     }
-    this.tasks.push(task)
-}
-render() {
-    const toDoTasksHtmlList = [];
-    const inProgressTasksHtmlList = [];
-    const reviewTasksHtmlList = [];
-    const doneTasksHtmlList = [];
 
-    for (let i = 0; i < this.tasks.length; i++) {
+    addTask(name, description, assignedTo, dueDate, status) {
+        const task = {
+            id: this.currentId++,
+            name: name,
+            description: description,
+            assignedTo: assignedTo,
+            dueDate: dueDate,
+            status: status
+        };
 
-        const currentTask = this.tasks[i];
-        const currentDate = new Date(currentTask.dueDate)
-        const formattedDate = currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear();
-        const tag = document.querySelector("priority");
+        this.tasks.push(task);
+    }
 
-        const taskHtml = createTaskHtml(
-            currentTask.id,
-            currentTask.name,
-            currentTask.description,
-            currentTask.assignedTo,
-            formattedDate,
-            currentTask.status
-        );
+    // Task 10: Delete Tasks
+    deleteTask(taskId) {
+        const newTasks = [];
+        for (let i = 0; i < this.tasks.length; i++) {
+            const task = this.tasks[i];
 
-        switch (currentTask.status) {
-            case "done":
+            if (task.id !== taskId) {
+
+                newTasks.push(task);
+            }
+        }
+
+        // Set this.tasks to newTasks
+        this.tasks = newTasks;
+    }
+
+    // Task 8: Status 
+    getTaskById(taskId) {
+        let foundTask;
+
+        for (let i = 0; i < this.tasks.length; i++) {
+            const task = this.tasks[i];
+
+            if (task.id === taskId) {
+                foundTask = task;
+            }
+        }
+
+        return foundTask;
+    }
+
+    //Task 7: Generate new Task through Rendering
+    render() {
+        const tasksHtmlList = [];
+        const inProgressTasksHtmlList = [];
+        const reviewTasksHtmlList = [];
+        const doneTasksHtmlList = [];
+    
+        for (let i = 0; i < this.tasks.length; i++) {
+            const task = this.tasks[i];
+            const date = new Date(task.dueDate);
+            const formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+
+            const taskHtml = createTaskHtml(
+                task.id, 
+                task.name, 
+                task.description, 
+                task.assignedTo, 
+                formattedDate, 
+                task.status
+                );
+            
+            switch (task.status) {
+                case "Done":
                 doneTasksHtmlList.push(taskHtml);
                 break;
 
-            case "review":
-                reviewTasksHtmlList.push(taskHtml);
-                break;
+                case "Review":
+                    reviewTasksHtmlList.push(taskHtml);
+                    break;
+    
+                case "In Progress":
+                    inProgressTasksHtmlList.push(taskHtml);
+                    break;
 
-            case "inProgress":
-                inProgressTasksHtmlList.push(taskHtml);
-                break;
+                default:
+                    tasksHtmlList.push(taskHtml);
 
-            default:
-                toDoTasksHtmlList.push(taskHtml);
+            }
         }
 
+        const tasksHtml = tasksHtmlList.join('\n');
+        const inProgressTaskHtml = inProgressTasksHtmlList.join('\n');
+        const reviewTaskHtml = reviewTasksHtmlList.join('\n');
+        const doneTaskHtml = doneTasksHtmlList.join('\n');
+
+        const tasksList = document.querySelector('#tasksList');
+        const inProgressTasksList = document.querySelector('#inProgressTasksList');
+        const reviewTasksList = document.querySelector('#reviewTasksList');
+        const doneTasksList = document.querySelector('#doneTasksList');
+        
+        tasksList.innerHTML = tasksHtml;
+        inProgressTasksList.innerHTML = inProgressTaskHtml;
+        reviewTasksList.innerHTML = reviewTaskHtml;
+        doneTasksList.innerHTML = doneTaskHtml;
+        
     }
 
-    const todoTaskHtml = toDoTasksHtmlList.join('\n');
-    const inProgressTaskHtml = inProgressTasksHtmlList.join('\n');
-    const reviewTaskHtml = reviewTasksHtmlList.join('\n');
-    const doneTaskHtml = doneTasksHtmlList.join('\n');
-    
+    save() {
+        const tasksJson = JSON.stringify(this.tasks);
 
-    const todoTasksList = document.getElementById('toDoList');
-    const inProgressTasksList = document.getElementById('inProgressList');
-    const reviewTasksList = document.getElementById('reviewList');
-    const doneTasksList = document.getElementById('doneList');
-    
+        localStorage.setItem('tasks', tasksJson);
 
-    todoTasksList.innerHTML = todoTaskHtml;
-    inProgressTasksList.innerHTML = inProgressTaskHtml;
-    reviewTasksList.innerHTML = reviewTaskHtml;
-    doneTasksList.innerHTML = doneTaskHtml;
-  }
-  
-  save() {
-    // Create a JSON string of the tasks
-    const tasksJson = JSON.stringify(this.tasks);
+        const currentId = String(this.currentId);
 
-    // Store the JSON string in localStorage
-    localStorage.setItem("tasks", tasksJson);
-
-    // Convert the currentId to a string;
-    const currentId = String(this.currentId);
-
-    // Store the currentId in localStorage
-    localStorage.setItem("currentId", currentId);
-  }
-
-  load() {
-    // Check if any tasks are saved in localStorage
-    if (localStorage.getItem("tasks")) {
-      // Get the JSON string of tasks in localStorage
-      const tasksJson = localStorage.getItem("tasks");
-
-      // Convert it to an array and store it in our TaskManager
-      this.tasks = JSON.parse(tasksJson);
+        localStorage.setItem('currentId', currentId);
     }
 
-    // Check if the currentId is saved in localStorage
-    if (localStorage.getItem("currentId")) {
-      // Get the currentId string in localStorage
-      const currentId = localStorage.getItem("currentId");
+    load() {
+        if (localStorage.getItem('tasks')) {
+            const tasksJson = localStorage.getItem('tasks');
 
-      // Convert the currentId to a number and store it in our TaskManager
-      this.currentId = Number(currentId);
+            this.tasks = JSON.parse(tasksJson);
+        }
+
+        if (localStorage.getItem('currentId')) {
+            const currentId = localStorage.getItem('currentId');
+
+            this.currentId = Number(currentId);
+        }
     }
-  }
-
-  deleteTask(taskId) {
-    // Create an empty array and store it in a new variable, newTasks
-    const newTasks = [];
-
-    // Loop over the tasks
-    for (let i = 0; i < this.tasks.length; i++) {
-      // Get the current task in the loop
-      const task = this.tasks[i];
-
-      // Check if the task id is not the task id passed in as a parameter
-      if (task.id !== taskId) {
-        // Push the task to the newTasks array
-        newTasks.push(task);
-      }
-    }
-
-    // Set this.tasks to newTasks
-    this.tasks = newTasks;
-  }
-
 }
 
-
-// Drag and Drop Functionality
+// Drag and Drop Functionality - Work on this later
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
   }
-
+  
   function allowDrop(ev) {
     ev.preventDefault();
   }
-
+  
   function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
@@ -173,10 +169,10 @@ function drag(ev) {
   }
 
 // Hamburger animation for the navigation bar 
-
-const hamburger = document.querySelector('.hamburger');
-
-hamburger.addEventListener('click', function () {
+  
+  const hamburger = document.querySelector('.hamburger');
+  
+  hamburger.addEventListener('click', function () {
   this.classList.toggle('is-active');
 });
 
