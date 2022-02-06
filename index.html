@@ -141,7 +141,7 @@
                       <div class="form-row">
                           <div class="form-group col">
                             <label for="newTaskDuedate">Due Date</label>
-                            <input class="form-control" type="date" id="newTaskDuedate" placeholder="dd/mm/yyyy" required pattern="\d{4}-\d{2}-\d{2}"/>
+                            <input class="form-control" type="date" id="newTaskDuedate" placeholder="dd-mm-yyyy" required/>
                           <div class="valid-feedback">Looks good!</div>
                           <div class="invalid-feedback">Please provide a valid date.</div>
                         </div>  
@@ -161,7 +161,7 @@
                           </div>
                       </div>
                   <div class="modal-footer">
-                      <button class="btn btn-warning" type="submit" id="taskSubmit" data-bs-dismiss="modal">Submit</button>
+                      <button class="btn btn-warning" type="submit" id="taskSubmit">Submit</button>
                       <button class="clear btn btn-secondary" type="reset">Reset</button>
                   </div>
                   </form>

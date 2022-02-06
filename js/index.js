@@ -167,7 +167,11 @@ newTaskForm.addEventListener('submit', (event) => {
     `taskDueDate[2]:${taskDueDate[2]} day:${day} taskDueDate[1]:${taskDueDate[1]} month:${month} taskDueDate[0]:${taskDueDate[0]} year:${year}`
   );
 
-  if (taskDueDate[0] >= year) {
+  if (
+    taskDueDate[2] >= day &&
+    taskDueDate[1] >= month &&
+    taskDueDate[0] >= year
+  ) {
     validateDueDate.classList.add("is-valid");
     validateDueDate.classList.remove("is-invalid");
   } else {
@@ -203,8 +207,14 @@ newTaskForm.addEventListener('submit', (event) => {
     clearFormFields();
     taskManager.save();
     taskManager.render();
+    $('#reg-modal').modal('hide')
   }
 });
+
+function resetButton(){
+  document.getElementById("newTaskForm").reset();
+  $('label.error').remove();
+} 
 
 // Task 8 & Task 10 together 
 const tasksList = document.querySelector('#tasksList');
