@@ -211,10 +211,10 @@ newTaskForm.addEventListener('submit', (event) => {
   }
 });
 
-function resetButton(){
-  document.getElementById("newTaskForm").reset();
-  $('label.error').remove();
-} 
+// function resetButton(){
+//   document.getElementById("newTaskForm").reset();
+//   $('label.error').remove();
+// } 
 
 // Task 8 & Task 10 together 
 const tasksList = document.querySelector('#tasksList');
