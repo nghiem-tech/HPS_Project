@@ -5,6 +5,8 @@ taskManager.load();
 // Task 9: Render the loaded tasks to the page
 taskManager.render();
 
+
+// Task 5: Display the dates
 function printTime() {
     let d = new Date();
     let hours = d.getHours();
@@ -15,12 +17,59 @@ function printTime() {
     let month = d.getMonth();
     let year = d.getFullYear();
     
-    const monthName = [
-    'January','February','March','April',
-    'May','June','July','August','September',
-    'October','November','December'
-  ];
-  
+        
+      switch (month){
+                
+        case 0:
+            month = "January";
+            break;
+
+        case 1:
+            month = "February";
+            break;
+
+        case 2:
+            month = "March";
+            break;
+
+        case 3:
+            month = "April";
+            break;
+
+        case 4:
+            month = "May";
+            break;
+
+        case 5:
+            month = "June";
+            break;
+
+        case 6:
+            month = "July";
+            break;
+
+        case 7:
+            month = "August";
+            break;
+
+        case 8:
+            month = "September";
+            break;
+
+        case 9:
+            month = "October";
+            break;
+
+        case 10:
+            month = "November";
+            break;
+            
+        case 11:
+            month = "December";
+            break;
+      }
+
+
         switch (day){
         
             case 0:
@@ -66,8 +115,8 @@ function printTime() {
             secs = "0" + secs;
         }
    
-  month = month + 1; document.getElementById("time-display").innerHTML = hours + ":" + mins + ":" + secs + " " + ampm;
-  document.getElementById("date-display").innerHTML = day + ", " + date + "  " + monthName[month - 1] + "  " + year;
+  month = month; document.getElementById("time-display").innerHTML = hours + ":" + mins + ":" + secs + " " + ampm;
+  document.getElementById("date-display").innerHTML = day + ", " + date + "  " + month + "  " + year;
   }
   setTimeout(printTime, 1);
   setInterval(printTime, 1000);
@@ -111,20 +160,19 @@ newTaskForm.addEventListener('submit', (event) => {
 
   // Call this to clear all the form fields after the submission
   const clearFormFields = () => {
-        validateName.value = "";
-        validateDescription.value = "";
-        validateAssignedTo.value = "";
-        validateStatus.value = "";
-        validateDueDate.value = "";
-        validateName.classList.remove("is-valid");
-        validateDescription.classList.remove("is-valid");
-        validateAssignedTo.classList.remove("is-valid");
-        validateStatus.classList.remove("is-valid");
-        validateDueDate.classList.remove("is-valid");
-      };
- 
+    validateName.value = "";
+    validateDescription.value = "";
+    validateAssignedTo.value = "";
+    validateStatus.value = "";
+    validateDueDate.value = "";
+    validateName.classList.remove("is-valid");
+    validateDescription.classList.remove("is-valid");
+    validateAssignedTo.classList.remove("is-valid");
+    validateStatus.classList.remove("is-valid");
+    validateDueDate.classList.remove("is-valid");
+  };
 
-      let todaysDate = new Date(Date.now())
+  let todaysDate = new Date(Date.now())
           .toLocaleString()
           .split(",")[0]
           .split("/");
@@ -167,11 +215,7 @@ newTaskForm.addEventListener('submit', (event) => {
     `taskDueDate[2]:${taskDueDate[2]} day:${day} taskDueDate[1]:${taskDueDate[1]} month:${month} taskDueDate[0]:${taskDueDate[0]} year:${year}`
   );
 
-  if (
-    taskDueDate[2] >= day &&
-    taskDueDate[1] >= month &&
-    taskDueDate[0] >= year
-  ) {
+  if (taskDueDate[0] >= year) {
     validateDueDate.classList.add("is-valid");
     validateDueDate.classList.remove("is-invalid");
   } else {
@@ -210,11 +254,6 @@ newTaskForm.addEventListener('submit', (event) => {
     $('#reg-modal').modal('hide')
   }
 });
-
-// function resetButton(){
-//   document.getElementById("newTaskForm").reset();
-//   $('label.error').remove();
-// } 
 
 // Task 8 & Task 10 together 
 const tasksList = document.querySelector('#tasksList');

@@ -2,8 +2,8 @@
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
     <li class="list-group-item card m-1" id="task" draggable="true" ondragstart="drag(event)" data-task-id=${id}>
         <div class="d-flex mt-2 justify-content-between align-items-center">
-            <h6>${name}</h6>
-            <span class="badge ${status === 'To-do' ? 'badge-danger' : 'badge-success'} ${status === 'In Progress' ? 'badge-info' : 'badge-success'} ${status === 'Review' ? 'badge-warning' : 'badge-success'}" style="border: 1px solid var(--light) color: var(--light);">${status}</span>
+            <small style="font-size:16px; font-weight: 600;">${name}</small>
+            <span class="badge ${status === 'To-do' ? 'badge-danger' : 'badge-success'} ${status === 'In Progress' ? 'badge-info' : 'badge-success'} ${status === 'Review' ? 'badge-warning' : 'badge-success'}" style="border: 1px solid var(--light); color: var(--light);">${status}</span>
         </div>
         <div class="d-flex mb-4 justify-content-between">
             <small>${assignedTo}</small>
@@ -11,10 +11,8 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
         </div>
         <small>${description}</small>
         <div class="d-flex justify-content-end">
-        <button class="btn btn-outline-success done-button mr-1 ${status === 'Done' ? 'invisible' : 'visible'}" >
-        Mark as Done
-      </button>
-            <button class="btn btn-outline-danger delete-button">Delete</button>
+        <button class="btn btn-outline-success done-button mr-1 ${status === 'Done' ? 'invisible' : 'visible'}">Mark as Done</button>
+        <button class="btn btn-outline-danger delete-button">Delete</button>
         </div>
     </li>
 `;
@@ -25,6 +23,7 @@ class TaskManager {
         this.tasks = [];
         this.currentId = currentId;
     }
+
 
     addTask(name, description, assignedTo, dueDate, status) {
         const task = {
@@ -70,7 +69,7 @@ class TaskManager {
         return foundTask;
     }
 
-    //Task 7: Generate new Task through Rendering
+    // Task 7: Generate new Task through Rendering
     render() {
         const tasksHtmlList = [];
         const inProgressTasksHtmlList = [];
@@ -91,39 +90,25 @@ class TaskManager {
                 task.status
                 );
             
-            switch (task.status) {
-                case "Done":
-                doneTasksHtmlList.push(taskHtml);
-                break;
-
-                case "Review":
-                    reviewTasksHtmlList.push(taskHtml);
-                    break;
-    
-                case "In Progress":
-                    inProgressTasksHtmlList.push(taskHtml);
-                    break;
-
-                default:
+                if (task.status === "To-do") {
                     tasksHtmlList.push(taskHtml);
-
-            }
+                  } else if (task.status === "In Progress") {
+                    inProgressTasksHtmlList.push(taskHtml);
+                  } else if (task.status === "Review") {
+                    reviewTasksHtmlList.push(taskHtml);
+                  } else {
+                    doneTasksHtmlList.push(taskHtml);
+                  } 
         }
 
         const tasksHtml = tasksHtmlList.join('\n');
+        document.querySelector('#tasksList').innerHTML = tasksHtml;
         const inProgressTaskHtml = inProgressTasksHtmlList.join('\n');
+        document.querySelector('#inProgressTasksList').innerHTML = inProgressTaskHtml;
         const reviewTaskHtml = reviewTasksHtmlList.join('\n');
+        document.querySelector('#reviewTasksList').innerHTML = reviewTaskHtml;
         const doneTaskHtml = doneTasksHtmlList.join('\n');
-
-        const tasksList = document.querySelector('#tasksList');
-        const inProgressTasksList = document.querySelector('#inProgressTasksList');
-        const reviewTasksList = document.querySelector('#reviewTasksList');
-        const doneTasksList = document.querySelector('#doneTasksList');
-        
-        tasksList.innerHTML = tasksHtml;
-        inProgressTasksList.innerHTML = inProgressTaskHtml;
-        reviewTasksList.innerHTML = reviewTaskHtml;
-        doneTasksList.innerHTML = doneTaskHtml;
+        document.querySelector('#doneTasksList').innerHTML = doneTaskHtml;
         
     }
 
@@ -164,9 +149,11 @@ function drag(ev) {
   
   function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
+    let data = ev.dataTransfer.getData("text");
     ev.currentTarget.appendChild(document.getElementById(data));
+    
   }
+  
 
 // Hamburger animation for the navigation bar 
   
@@ -174,32 +161,30 @@ function drag(ev) {
   
   hamburger.addEventListener('click', function () {
   this.classList.toggle('is-active');
+  });
+  
+
+// Search bar functionality to search tasks by title
+
+function serach(value) {
+    var filter,
+        i, li,
+        txtValue;
+    filter = value.toUpperCase();
+    li = $("li");
+    for (i = 0; i < li.length; i++) {
+        txtValue = $(li[i]).find("small").text();
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+$("#search-input").keyup(function (e) {
+    var search;
+    search = e.target.value
+    serach(search);
 });
 
-// const TestTask = new TaskManager;
-// const task1 = {
-//     id : 1,
-//     name: 'Take out the trash',
-//     description: 'Take out the trash to the front of the house',
-//     assignedTo: 'Nick',
-//     dueDate: '2020-09-20',
-//     status: 'In Progress'
-    
-// };
-
-// const task2 = {
-//     id : 2,
-//     name: 'Cook Dinner',
-//     description: 'Prepare a healthy serving of pancakes for the family tonight',
-//     assignedTo: 'Nick',
-//     dueDate: '2020-09-20',
-//     status: 'In Progress'
-// };
-
-
-// console.log(TestTask.tasks);
-// TestTask.addTask(this.task);
-// TestTask.addTask(task1['name'],task1['description'],task1['assignedTo'],task1['dueDate'],task1['status']);
-// console.table(TestTask.tasks);
-// TestTask.addTask(task2['name'],task2['description'],task2['assignedTo'],task2['dueDate'],task2['status']);
-// console.table(TestTask.tasks);

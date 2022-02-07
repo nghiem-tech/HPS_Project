@@ -55,6 +55,10 @@ h1 {
   margin: 5px 20px 0 0;
 }
 
+.dropdown {
+  display: none;
+}
+
 .hamburger {
   display: block;
   position: relative;
@@ -246,6 +250,10 @@ a:hover span:nth-child(4) {
 
 /* --- Task 5: Date display Button --- */
 
+.timezone {
+  margin: 8em 0 0 3em;
+}
+
 #time-display{
   text-align: center;
   color: #000;
@@ -281,6 +289,7 @@ a:hover span:nth-child(4) {
   font-size: 15px;
   cursor: pointer;
   transition: 0.3s ease;
+  display: none;
 }
 
 @media (max-width: 767px) {
@@ -288,9 +297,7 @@ a:hover span:nth-child(4) {
     display: none;
   }
 
-  #timezone{
-    display: none;
-  }
+
 }
 
 /* --- Main Content --- */
@@ -354,8 +361,8 @@ main {
 
 
 .done-button,
+.edit-button,
 .delete-button {
-  
   font-size: 11px;
   border-radius: 3em;
   padding: 1px 1.5em;
