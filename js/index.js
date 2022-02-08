@@ -181,9 +181,10 @@ newTaskForm.addEventListener('submit', (event) => {
         let year = todaysDate[2];
         // taskDueDate is in yyyy-mm-dd format
         let taskDueDate = validateDueDate.value.split("-");
-
+  
+  
   // Form validation for Task Name Field for min length 5
-  if ((validateName.value.length > 5) || (validateName.value==null || validateName.value =="")) {
+  if ((validateName.value.length > 5) && (validateName.value !==null && validateName.value !=="")) {
     validateName.classList.add("is-valid");
     validateName.classList.remove("is-invalid");
   } else {
@@ -193,7 +194,7 @@ newTaskForm.addEventListener('submit', (event) => {
   }
 
   // Form validation for Task Description Field for min length 5
-  if ((validateDescription.value.length > 5) || (validateDescription.value==null || validateDescription.value =="")) {
+  if ((validateDescription.value.length > 5) && (validateDescription.value !==null && validateDescription.value !=="")) {
     validateDescription.classList.add("is-valid");
     validateDescription.classList.remove("is-invalid");
   } else {
@@ -203,7 +204,7 @@ newTaskForm.addEventListener('submit', (event) => {
   }
 
   // Form validation for Task Assigned Field for min length 5
-  if ((validateAssignedTo.value.length > 5) || (validateAssignedTo.value==null || validateAssignedTo.value =="")) {
+  if ((validateAssignedTo.value.length > 5) && (validateAssignedTo.value !==null && validateAssignedTo.value !=="")) {
     validateAssignedTo.classList.add("is-valid");
     validateAssignedTo.classList.remove("is-invalid");
   } else {
@@ -215,7 +216,7 @@ newTaskForm.addEventListener('submit', (event) => {
     `taskDueDate[2]:${taskDueDate[2]} day:${day} taskDueDate[1]:${taskDueDate[1]} month:${month} taskDueDate[0]:${taskDueDate[0]} year:${year}`
   );
 
-  if (taskDueDate[0] >= year) {
+  if  (validateStatus.value !==null && validateStatus.value !=="") {
     validateDueDate.classList.add("is-valid");
     validateDueDate.classList.remove("is-invalid");
   } else {
@@ -224,7 +225,7 @@ newTaskForm.addEventListener('submit', (event) => {
     validationFail++;
   }
   // Form validation for Task Status Field for not empty
-  if (validateStatus.value) {
+  if (validateStatus.value !==null && validateStatus.value !=="") {
     validateStatus.classList.add("is-valid");
     validateStatus.classList.remove("is-invalid");
   } else {
